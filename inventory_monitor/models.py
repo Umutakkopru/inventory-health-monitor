@@ -25,6 +25,18 @@ class Status(StrEnum):
     OK = "OK"
 
 
+# Display and sort order, most urgent first: shortages, then tied-up capital, then the rest.
+URGENCY_ORDER: tuple[Status, ...] = (
+    Status.SHORTAGE_CRITICAL,
+    Status.SHORTAGE_WARNING,
+    Status.DEAD_STOCK,
+    Status.OVERSTOCK,
+    Status.INACTIVE,
+    Status.INSUFFICIENT_DATA,
+    Status.OK,
+)
+
+
 class WorkbookFormatError(ValueError):
     """The workbook is structurally unusable: a sheet or a required column is missing."""
 
