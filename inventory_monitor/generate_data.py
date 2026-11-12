@@ -18,6 +18,7 @@ from statistics import NormalDist
 import numpy as np
 import pandas as pd
 
+from inventory_monitor.classify import assign_abc
 from inventory_monitor.config import (
     DEFAULT_THRESHOLDS,
     MATERIAL_COLUMNS,
@@ -212,22 +213,6 @@ def _weekly_sigma(profile: str, weekday_demand: float) -> float:
     return math.sqrt(WEEKDAYS_PER_WEEK * var_day)
 
 
-def estimate_abc(annual_values: pd.Series, thresholds: Thresholds) -> pd.Series:
-    """ABC class from expected annual consumption value, used only to set up the policy.
-
-    The item that crosses a cutoff belongs to the higher class: an item is A when the
-    cumulative share *before* it is still below the A cutoff.
-    """
-    ordered = annual_values.sort_values(ascending=False)
-    share_before = (ordered.cumsum() - ordered) / ordered.sum()
-    classes = np.select(
-        [share_before < thresholds.abc_cutoff_a, share_before < thresholds.abc_cutoff_b],
-        ["A", "B"],
-        default="C",
-    )
-    return pd.Series(classes, index=ordered.index).reindex(annual_values.index)
-
-
 def _material_plant_frame(rng: np.random.Generator) -> pd.DataFrame:
     """One row per material and plant with catalogue data, price, profile and demand level."""
     n = len(CATALOGUE)
@@ -272,8 +257,9 @@ def build_plans(
     follows the same logic the analysis later applies to the data.
     """
     frame = _material_plant_frame(rng)
+    # Expected annual consumption value, classified with the same rule the analysis uses.
     annual_value = frame["weekday_demand"] * WEEKDAYS_PER_WEEK * 52 * frame["unit_price_eur"]
-    abc = annual_value.groupby(frame["plant"]).transform(lambda v: estimate_abc(v, thresholds))
+    abc = assign_abc(frame.assign(annual_consumption_value=annual_value), thresholds)["abc"]
 
     plans = []
     for row, abc_class in zip(frame.itertuples(index=False), abc, strict=True):

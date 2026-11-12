@@ -202,13 +202,6 @@ def test_weekly_sigma_intermittent() -> None:
     assert g._weekly_sigma("intermittent", 10.0) == pytest.approx(85.51, abs=1e-2)
 
 
-def test_estimate_abc_crossing_item_belongs_to_higher_class() -> None:
-    values = pd.Series([50.0, 30.0, 15.0, 5.0])
-    # cumulative share before each item: 0.00, 0.50, 0.80, 0.95
-    # 0.80 is not below the A cutoff 0.80 -> B; 0.95 is not below the B cutoff 0.95 -> C
-    assert g.estimate_abc(values, DEFAULT_THRESHOLDS).tolist() == ["A", "A", "B", "C"]
-
-
 def test_plans_respect_order_cap(generated: g.Generated) -> None:
     for plan in generated.plans:
         cap_days = 0.75 * DEFAULT_THRESHOLDS.overstock_days(plan.abc_estimate)

@@ -70,6 +70,14 @@ UNITS: Final[tuple[str, ...]] = ("ST", "KG", "M", "L")
 ABC_CLASSES: Final[tuple[str, ...]] = ("A", "B", "C")
 XYZ_CLASSES: Final[tuple[str, ...]] = ("X", "Y", "Z")
 
+# --- Fixed analysis constants (part of the method, not tunable in the dashboard) -------------
+
+DAYS_PER_WEEK: Final[int] = 7
+MIN_COMPLETE_WEEKS: Final[int] = 4  # fewer complete weeks: sigma_weekly is not estimated
+ANNUAL_WINDOW_DAYS: Final[int] = 365  # window of the annual consumption value (ABC)
+RECEIPT_ANOMALY_WINDOW_DAYS: Final[int] = 30  # receipts this recent are checked for anomalies
+MIN_RECEIPT_HISTORY: Final[int] = 5  # earlier receipts needed before a receipt can be unusual
+
 
 # --- Thresholds ------------------------------------------------------------------------------
 
