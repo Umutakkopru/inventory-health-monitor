@@ -1,0 +1,27 @@
+# Python
+__pycache__/
+*.py[cod]
+.venv/
+*.egg-info/
+.pytest_cache/
+.ruff_cache/
+.coverage
+htmlcov/
+
+# OS / editor
+.DS_Store
+.idea/
+.vscode/
+
+# Streamlit secrets
+.streamlit/secrets.toml
+
+# Private: application documents and AI working instructions never go public
+CLAUDE.md
+.claude/
+private/
+*.pdf
+
+# Generated at runtime (the sample workbook data/sample_inventory.xlsx IS committed)
+data/*.tmp.xlsx
+exports/

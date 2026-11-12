@@ -1,0 +1,25 @@
+# Tool configuration only. This project is not built or installed as a package.
+
+[tool.ruff]
+line-length = 100
+target-version = "py312"
+extend-exclude = [".venv"]
+
+[tool.ruff.lint]
+select = ["E", "F", "I", "B", "UP", "SIM", "PD"]
+
+[tool.ruff.lint.isort]
+known-first-party = ["inventory_monitor", "app"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+pythonpath = ["."]
+addopts = "-ra"
+
+[tool.coverage.run]
+source = ["inventory_monitor"]
+branch = true
+
+[tool.coverage.report]
+show_missing = true
+exclude_also = ['if __name__ == "__main__":']

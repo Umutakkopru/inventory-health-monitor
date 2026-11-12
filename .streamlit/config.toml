@@ -1,0 +1,10 @@
+# The base theme is left unset so the app follows the viewer's light or dark preference.
+# Status colours live in app/theme.py and are chosen to work in both.
+[theme]
+primaryColor = "#2563eb"
+
+[client]
+toolbarMode = "minimal"
+
+[browser]
+gatherUsageStats = false
