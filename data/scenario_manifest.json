@@ -1,0 +1,3661 @@
+{
+  "seed": 42,
+  "start_date": "2025-11-01",
+  "end_date": "2026-10-31",
+  "scenarios": [
+    {
+      "material_id": "00103233",
+      "plant": "1010",
+      "scenario": "dead_stock",
+      "expected_status": [
+        "DEAD_STOCK"
+      ]
+    },
+    {
+      "material_id": "00738382",
+      "plant": "1010",
+      "scenario": "dead_stock",
+      "expected_status": [
+        "DEAD_STOCK"
+      ]
+    },
+    {
+      "material_id": "80815503",
+      "plant": "1020",
+      "scenario": "dead_stock",
+      "expected_status": [
+        "DEAD_STOCK"
+      ]
+    },
+    {
+      "material_id": "00455877",
+      "plant": "1010",
+      "scenario": "delayed_delivery",
+      "expected_status": [
+        "SHORTAGE_CRITICAL"
+      ]
+    },
+    {
+      "material_id": "51201703",
+      "plant": "1010",
+      "scenario": "delayed_delivery",
+      "expected_status": [
+        "SHORTAGE_CRITICAL"
+      ]
+    },
+    {
+      "material_id": "52337732",
+      "plant": "1010",
+      "scenario": "delayed_delivery",
+      "expected_status": [
+        "SHORTAGE_CRITICAL"
+      ]
+    },
+    {
+      "material_id": "71096551",
+      "plant": "1010",
+      "scenario": "demand_drop",
+      "expected_status": [
+        "OVERSTOCK"
+      ]
+    },
+    {
+      "material_id": "72323591",
+      "plant": "1010",
+      "scenario": "demand_drop",
+      "expected_status": [
+        "OVERSTOCK"
+      ]
+    },
+    {
+      "material_id": "93687235",
+      "plant": "1020",
+      "scenario": "demand_drop",
+      "expected_status": [
+        "OVERSTOCK"
+      ]
+    },
+    {
+      "material_id": "00444478",
+      "plant": "1020",
+      "scenario": "demand_spike",
+      "expected_status": [
+        "SHORTAGE_CRITICAL",
+        "SHORTAGE_WARNING"
+      ]
+    },
+    {
+      "material_id": "00783747",
+      "plant": "1020",
+      "scenario": "demand_spike",
+      "expected_status": [
+        "SHORTAGE_CRITICAL",
+        "SHORTAGE_WARNING"
+      ]
+    },
+    {
+      "material_id": "38998449",
+      "plant": "1020",
+      "scenario": "demand_spike",
+      "expected_status": [
+        "SHORTAGE_CRITICAL",
+        "SHORTAGE_WARNING"
+      ]
+    },
+    {
+      "material_id": "00095084",
+      "plant": "1010",
+      "scenario": "new_material",
+      "expected_status": [
+        "INSUFFICIENT_DATA"
+      ]
+    },
+    {
+      "material_id": "00438674",
+      "plant": "1020",
+      "scenario": "new_material",
+      "expected_status": [
+        "INSUFFICIENT_DATA"
+      ]
+    },
+    {
+      "material_id": "42631186",
+      "plant": "1020",
+      "scenario": "new_material",
+      "expected_status": [
+        "INSUFFICIENT_DATA"
+      ]
+    },
+    {
+      "material_id": "46565671",
+      "plant": "1010",
+      "scenario": "over_ordering",
+      "expected_status": [
+        "OVERSTOCK"
+      ]
+    },
+    {
+      "material_id": "00095084",
+      "plant": "1020",
+      "scenario": "over_ordering",
+      "expected_status": [
+        "OVERSTOCK"
+      ]
+    },
+    {
+      "material_id": "00763516",
+      "plant": "1020",
+      "scenario": "over_ordering",
+      "expected_status": [
+        "OVERSTOCK"
+      ]
+    },
+    {
+      "material_id": "90592663",
+      "plant": "1010",
+      "scenario": "phased_out",
+      "expected_status": [
+        "INACTIVE"
+      ]
+    },
+    {
+      "material_id": "00377087",
+      "plant": "1020",
+      "scenario": "phased_out",
+      "expected_status": [
+        "INACTIVE"
+      ]
+    },
+    {
+      "material_id": "71096551",
+      "plant": "1020",
+      "scenario": "phased_out",
+      "expected_status": [
+        "INACTIVE"
+      ]
+    },
+    {
+      "material_id": "00505343",
+      "plant": "1010",
+      "scenario": "stockout",
+      "expected_status": [
+        "SHORTAGE_CRITICAL"
+      ]
+    },
+    {
+      "material_id": "38998449",
+      "plant": "1010",
+      "scenario": "stockout",
+      "expected_status": [
+        "SHORTAGE_CRITICAL"
+      ]
+    },
+    {
+      "material_id": "78338108",
+      "plant": "1010",
+      "scenario": "stockout",
+      "expected_status": [
+        "SHORTAGE_CRITICAL"
+      ]
+    }
+  ],
+  "normal_material_plants": [
+    [
+      "00098355",
+      "1010"
+    ],
+    [
+      "00190722",
+      "1010"
+    ],
+    [
+      "00377087",
+      "1010"
+    ],
+    [
+      "00438674",
+      "1010"
+    ],
+    [
+      "00444478",
+      "1010"
+    ],
+    [
+      "00448980",
+      "1010"
+    ],
+    [
+      "00531204",
+      "1010"
+    ],
+    [
+      "00549974",
+      "1010"
+    ],
+    [
+      "00647423",
+      "1010"
+    ],
+    [
+      "00658008",
+      "1010"
+    ],
+    [
+      "00700379",
+      "1010"
+    ],
+    [
+      "00720291",
+      "1010"
+    ],
+    [
+      "00788192",
+      "1010"
+    ],
+    [
+      "00824532",
+      "1010"
+    ],
+    [
+      "00841341",
+      "1010"
+    ],
+    [
+      "00859991",
+      "1010"
+    ],
+    [
+      "18653170",
+      "1010"
+    ],
+    [
+      "24301245",
+      "1010"
+    ],
+    [
+      "26862947",
+      "1010"
+    ],
+    [
+      "30194929",
+      "1010"
+    ],
+    [
+      "37800630",
+      "1010"
+    ],
+    [
+      "39387469",
+      "1010"
+    ],
+    [
+      "42631186",
+      "1010"
+    ],
+    [
+      "42970906",
+      "1010"
+    ],
+    [
+      "48906517",
+      "1010"
+    ],
+    [
+      "60240484",
+      "1010"
+    ],
+    [
+      "66049020",
+      "1010"
+    ],
+    [
+      "69613439",
+      "1010"
+    ],
+    [
+      "76283811",
+      "1010"
+    ],
+    [
+      "80815503",
+      "1010"
+    ],
+    [
+      "84108355",
+      "1010"
+    ],
+    [
+      "96108341",
+      "1010"
+    ],
+    [
+      "00098355",
+      "1020"
+    ],
+    [
+      "00103233",
+      "1020"
+    ],
+    [
+      "00136830",
+      "1020"
+    ],
+    [
+      "00190722",
+      "1020"
+    ],
+    [
+      "00209450",
+      "1020"
+    ],
+    [
+      "00408389",
+      "1020"
+    ],
+    [
+      "00518087",
+      "1020"
+    ],
+    [
+      "00531204",
+      "1020"
+    ],
+    [
+      "00549974",
+      "1020"
+    ],
+    [
+      "00647423",
+      "1020"
+    ],
+    [
+      "00658008",
+      "1020"
+    ],
+    [
+      "00700379",
+      "1020"
+    ],
+    [
+      "00776194",
+      "1020"
+    ],
+    [
+      "00824532",
+      "1020"
+    ],
+    [
+      "00859991",
+      "1020"
+    ],
+    [
+      "00927491",
+      "1020"
+    ],
+    [
+      "00975848",
+      "1020"
+    ],
+    [
+      "16794542",
+      "1020"
+    ],
+    [
+      "18653170",
+      "1020"
+    ],
+    [
+      "21563012",
+      "1020"
+    ],
+    [
+      "24301245",
+      "1020"
+    ],
+    [
+      "30194929",
+      "1020"
+    ],
+    [
+      "42970906",
+      "1020"
+    ],
+    [
+      "46565671",
+      "1020"
+    ],
+    [
+      "51201703",
+      "1020"
+    ],
+    [
+      "51790458",
+      "1020"
+    ],
+    [
+      "52337732",
+      "1020"
+    ],
+    [
+      "60240484",
+      "1020"
+    ],
+    [
+      "66049020",
+      "1020"
+    ],
+    [
+      "69613439",
+      "1020"
+    ],
+    [
+      "70791337",
+      "1020"
+    ],
+    [
+      "78338108",
+      "1020"
+    ],
+    [
+      "90592663",
+      "1020"
+    ],
+    [
+      "92104951",
+      "1020"
+    ]
+  ],
+  "clean_material_plants": [
+    [
+      "00190722",
+      "1020"
+    ],
+    [
+      "00209450",
+      "1020"
+    ],
+    [
+      "00658008",
+      "1020"
+    ],
+    [
+      "00824532",
+      "1010"
+    ],
+    [
+      "00927491",
+      "1020"
+    ]
+  ],
+  "defect_counts": {
+    "conflicting_duplicate": 5,
+    "exact_duplicate": 5,
+    "lost_leading_zeros": 10,
+    "missing_day": 308,
+    "negative_stock": 6,
+    "partial_snapshot": 10,
+    "unknown_material": 4,
+    "unrecorded_receipt": 3
+  },
+  "defects": [
+    {
+      "defect": "conflicting_duplicate",
+      "sheet": "Bestand",
+      "material_id": "80815503",
+      "plant": "1010",
+      "storage_location": "0001",
+      "date": "2026-03-06",
+      "detail": "37"
+    },
+    {
+      "defect": "conflicting_duplicate",
+      "sheet": "Bestand",
+      "material_id": "00377087",
+      "plant": "1020",
+      "storage_location": "0001",
+      "date": "2026-03-31",
+      "detail": "902"
+    },
+    {
+      "defect": "conflicting_duplicate",
+      "sheet": "Bestand",
+      "material_id": "00763516",
+      "plant": "1020",
+      "storage_location": "0001",
+      "date": "2026-06-08",
+      "detail": "629"
+    },
+    {
+      "defect": "conflicting_duplicate",
+      "sheet": "Bestand",
+      "material_id": "00103233",
+      "plant": "1020",
+      "storage_location": "0001",
+      "date": "2026-07-06",
+      "detail": "681"
+    },
+    {
+      "defect": "conflicting_duplicate",
+      "sheet": "Bestand",
+      "material_id": "71096551",
+      "plant": "1010",
+      "storage_location": "0001",
+      "date": "2026-08-26",
+      "detail": "413"
+    },
+    {
+      "defect": "exact_duplicate",
+      "sheet": "Bestand",
+      "material_id": "00377087",
+      "plant": "1010",
+      "storage_location": "0001",
+      "date": "2025-11-26",
+      "detail": ""
+    },
+    {
+      "defect": "exact_duplicate",
+      "sheet": "Bestand",
+      "material_id": "00700379",
+      "plant": "1020",
+      "storage_location": "0001",
+      "date": "2025-11-30",
+      "detail": ""
+    },
+    {
+      "defect": "exact_duplicate",
+      "sheet": "Bestand",
+      "material_id": "78338108",
+      "plant": "1020",
+      "storage_location": "0001",
+      "date": "2026-05-18",
+      "detail": ""
+    },
+    {
+      "defect": "exact_duplicate",
+      "sheet": "Bestand",
+      "material_id": "00136830",
+      "plant": "1020",
+      "storage_location": "0001",
+      "date": "2026-06-04",
+      "detail": ""
+    },
+    {
+      "defect": "exact_duplicate",
+      "sheet": "Bestand",
+      "material_id": "00700379",
+      "plant": "1020",
+      "storage_location": "0001",
+      "date": "2026-07-07",
+      "detail": ""
+    },
+    {
+      "defect": "lost_leading_zeros",
+      "sheet": "Wareneingang",
+      "material_id": "00190722",
+      "plant": "1010",
+      "storage_location": "0001",
+      "date": "2026-01-16",
+      "detail": ""
+    },
+    {
+      "defect": "lost_leading_zeros",
+      "sheet": "Bestand",
+      "material_id": "00788192",
+      "plant": "1010",
+      "storage_location": "0001",
+      "date": "2026-01-24",
+      "detail": ""
+    },
+    {
+      "defect": "lost_leading_zeros",
+      "sheet": "Bestand",
+      "material_id": "00448980",
+      "plant": "1010",
+      "storage_location": "0001",
+      "date": "2026-01-25",
+      "detail": ""
+    },
+    {
+      "defect": "lost_leading_zeros",
+      "sheet": "Wareneingang",
+      "material_id": "00975848",
+      "plant": "1020",
+      "storage_location": "0001",
+      "date": "2026-03-17",
+      "detail": ""
+    },
+    {
+      "defect": "lost_leading_zeros",
+      "sheet": "Bestand",
+      "material_id": "00095084",
+      "plant": "1020",
+      "storage_location": "0001",
+      "date": "2026-04-23",
+      "detail": ""
+    },
+    {
+      "defect": "lost_leading_zeros",
+      "sheet": "Wareneingang",
+      "material_id": "00098355",
+      "plant": "1020",
+      "storage_location": "0001",
+      "date": "2026-06-01",
+      "detail": ""
+    },
+    {
+      "defect": "lost_leading_zeros",
+      "sheet": "Bestand",
+      "material_id": "00658008",
+      "plant": "1010",
+      "storage_location": "0001",
+      "date": "2026-06-03",
+      "detail": ""
+    },
+    {
+      "defect": "lost_leading_zeros",
+      "sheet": "Wareneingang",
+      "material_id": "00505343",
+      "plant": "1010",
+      "storage_location": "0001",
+      "date": "2026-06-08",
+      "detail": ""
+    },
+    {
+      "defect": "lost_leading_zeros",
+      "sheet": "Bestand",
+      "material_id": "00776194",
+      "plant": "1020",
+      "storage_location": "0001",
+      "date": "2026-06-17",
+      "detail": ""
+    },
+    {
+      "defect": "lost_leading_zeros",
+      "sheet": "Bestand",
+      "material_id": "00658008",
+      "plant": "1010",
+      "storage_location": "0001",
+      "date": "2026-10-17",
+      "detail": ""
+    },
+    {
+      "defect": "missing_day",
+      "sheet": "Bestand",
+      "material_id": "84108355",
+      "plant": "1010",
+      "storage_location": "",
+      "date": "2025-11-02",
+      "detail": "single"
+    },
+    {
+      "defect": "missing_day",
+      "sheet": "Bestand",
+      "material_id": "00859991",
+      "plant": "1020",
+      "storage_location": "",
+      "date": "2025-11-06",
+      "detail": "single"
+    },
+    {
+      "defect": "missing_day",
+      "sheet": "Bestand",
+      "material_id": "69613439",
+      "plant": "1020",
+      "storage_location": "",
+      "date": "2025-11-08",
+      "detail": "single"
+    },
+    {
+      "defect": "missing_day",
+      "sheet": "Bestand",
+      "material_id": "71096551",
+      "plant": "1020",
+      "storage_location": "",
+      "date": "2025-11-11",
+      "detail": "single"
+    },
+    {
+      "defect": "missing_day",
+      "sheet": "Bestand",
+      "material_id": "60240484",
+      "plant": "1010",
+      "storage_location": "",
+      "date": "2025-11-12",
+      "detail": "single"
+    },
+    {
+      "defect": "missing_day",
+      "sheet": "Bestand",
+      "material_id": "80815503",
+      "plant": "1010",
+      "storage_location": "",
+      "date": "2025-11-12",
+      "detail": "single"
+    },
+    {
+      "defect": "missing_day",
+      "sheet": "Bestand",
+      "material_id": "00103233",
+      "plant": "1020",
+      "storage_location": "",
+      "date": "2025-11-13",
+      "detail": "single"
+    },
+    {
+      "defect": "missing_day",
+      "sheet": "Bestand",
+      "material_id": "70791337",
+      "plant": "1020",
+      "storage_location": "",
+      "date": "2025-11-13",
+      "detail": "single"
+    },
+    {
+      "defect": "missing_day",
+      "sheet": "Bestand",
+      "material_id": "92104951",
+      "plant": "1020",
+      "storage_location": "",
+      "date": "2025-11-13",
+      "detail": "single"
+    },
+    {
+      "defect": "missing_day",
+      "sheet": "Bestand",
+      "material_id": "00103233",
+      "plant": "1020",
+      "storage_location": "",
+      "date": "2025-11-15",
+      "detail": "single"
+    },
+    {
+      "defect": "missing_day",
+      "sheet": "Bestand",
+      "material_id": "00377087",
+      "plant": "1010",
+      "storage_location": "",
+      "date": "2025-11-16",
+      "detail": "single"
+    },
+    {
+      "defect": "missing_day",
+      "sheet": "Bestand",
+      "material_id": "52337732",
+      "plant": "1010",
+      "storage_location": "",
+      "date": "2025-11-16",
+      "detail": "single"
+    },
+    {
+      "defect": "missing_day",
+      "sheet": "Bestand",
+      "material_id": "38998449",
+      "plant": "1010",
+      "storage_location": "",
+      "date": "2025-11-18",
+      "detail": "single"
+    },
+    {
+      "defect": "missing_day",
+      "sheet": "Bestand",
+      "material_id": "38998449",
+      "plant": "1010",
+      "storage_location": "",
+      "date": "2025-11-20",
+      "detail": "single"
+    },
+    {
+      "defect": "missing_day",
+      "sheet": "Bestand",
+      "material_id": "00788192",
+      "plant": "1010",
+      "storage_location": "",
+      "date": "2025-11-22",
+      "detail": "single"
+    },
+    {
+      "defect": "missing_day",
+      "sheet": "Bestand",
+      "material_id": "00098355",
+      "plant": "1010",
+      "storage_location": "",
+      "date": "2025-11-23",
+      "detail": "single"
+    },
+    {
+      "defect": "missing_day",
+      "sheet": "Bestand",
+      "material_id": "21563012",
+      "plant": "1020",
+      "storage_location": "",
+      "date": "2025-11-24",
+      "detail": "single"
+    },
+    {
+      "defect": "missing_day",
+      "sheet": "Bestand",
+      "material_id": "26862947",
+      "plant": "1010",
+      "storage_location": "",
+      "date": "2025-11-24",
+      "detail": "single"
+    },
+    {
+      "defect": "missing_day",
+      "sheet": "Bestand",
+      "material_id": "00975848",
+      "plant": "1020",
+      "storage_location": "",
+      "date": "2025-11-27",
+      "detail": "single"
+    },
+    {
+      "defect": "missing_day",
+      "sheet": "Bestand",
+      "material_id": "16794542",
+      "plant": "1020",
+      "storage_location": "",
+      "date": "2025-11-28",
+      "detail": "single"
+    },
+    {
+      "defect": "missing_day",
+      "sheet": "Bestand",
+      "material_id": "24301245",
+      "plant": "1020",
+      "storage_location": "",
+      "date": "2025-11-28",
+      "detail": "single"
+    },
+    {
+      "defect": "missing_day",
+      "sheet": "Bestand",
+      "material_id": "00444478",
+      "plant": "1010",
+      "storage_location": "",
+      "date": "2025-11-29",
+      "detail": "single"
+    },
+    {
+      "defect": "missing_day",
+      "sheet": "Bestand",
+      "material_id": "66049020",
+      "plant": "1010",
+      "storage_location": "",
+      "date": "2025-11-30",
+      "detail": "gap"
+    },
+    {
+      "defect": "missing_day",
+      "sheet": "Bestand",
+      "material_id": "00095084",
+      "plant": "1020",
+      "storage_location": "",
+      "date": "2025-12-01",
+      "detail": "single"
+    },
+    {
+      "defect": "missing_day",
+      "sheet": "Bestand",
+      "material_id": "00377087",
+      "plant": "1020",
+      "storage_location": "",
+      "date": "2025-12-01",
+      "detail": "single"
+    },
+    {
+      "defect": "missing_day",
+      "sheet": "Bestand",
+      "material_id": "00531204",
+      "plant": "1010",
+      "storage_location": "",
+      "date": "2025-12-01",
+      "detail": "single"
+    },
+    {
+      "defect": "missing_day",
+      "sheet": "Bestand",
+      "material_id": "66049020",
+      "plant": "1010",
+      "storage_location": "",
+      "date": "2025-12-01",
+      "detail": "gap"
+    },
+    {
+      "defect": "missing_day",
+      "sheet": "Bestand",
+      "material_id": "96108341",
+      "plant": "1010",
+      "storage_location": "",
+      "date": "2025-12-01",
+      "detail": "single"
+    },
+    {
+      "defect": "missing_day",
+      "sheet": "Bestand",
+      "material_id": "66049020",
+      "plant": "1010",
+      "storage_location": "",
+      "date": "2025-12-02",
+      "detail": "gap"
+    },
+    {
+      "defect": "missing_day",
+      "sheet": "Bestand",
+      "material_id": "24301245",
+      "plant": "1020",
+      "storage_location": "",
+      "date": "2025-12-06",
+      "detail": "single"
+    },
+    {
+      "defect": "missing_day",
+      "sheet": "Bestand",
+      "material_id": "42970906",
+      "plant": "1020",
+      "storage_location": "",
+      "date": "2025-12-09",
+      "detail": "single"
+    },
+    {
+      "defect": "missing_day",
+      "sheet": "Bestand",
+      "material_id": "18653170",
+      "plant": "1010",
+      "storage_location": "",
+      "date": "2025-12-10",
+      "detail": "single"
+    },
+    {
+      "defect": "missing_day",
+      "sheet": "Bestand",
+      "material_id": "00136830",
+      "plant": "1020",
+      "storage_location": "",
+      "date": "2025-12-11",
+      "detail": "single"
+    },
+    {
+      "defect": "missing_day",
+      "sheet": "Bestand",
+      "material_id": "00783747",
+      "plant": "1020",
+      "storage_location": "",
+      "date": "2025-12-11",
+      "detail": "single"
+    },
+    {
+      "defect": "missing_day",
+      "sheet": "Bestand",
+      "material_id": "42970906",
+      "plant": "1020",
+      "storage_location": "",
+      "date": "2025-12-13",
+      "detail": "single"
+    },
+    {
+      "defect": "missing_day",
+      "sheet": "Bestand",
+      "material_id": "80815503",
+      "plant": "1020",
+      "storage_location": "",
+      "date": "2025-12-14",
+      "detail": "single"
+    },
+    {
+      "defect": "missing_day",
+      "sheet": "Bestand",
+      "material_id": "18653170",
+      "plant": "1020",
+      "storage_location": "",
+      "date": "2025-12-15",
+      "detail": "single"
+    },
+    {
+      "defect": "missing_day",
+      "sheet": "Bestand",
+      "material_id": "46565671",
+      "plant": "1010",
+      "storage_location": "",
+      "date": "2025-12-16",
+      "detail": "single"
+    },
+    {
+      "defect": "missing_day",
+      "sheet": "Bestand",
+      "material_id": "96108341",
+      "plant": "1010",
+      "storage_location": "",
+      "date": "2025-12-16",
+      "detail": "single"
+    },
+    {
+      "defect": "missing_day",
+      "sheet": "Bestand",
+      "material_id": "51201703",
+      "plant": "1020",
+      "storage_location": "",
+      "date": "2025-12-17",
+      "detail": "single"
+    },
+    {
+      "defect": "missing_day",
+      "sheet": "Bestand",
+      "material_id": "00700379",
+      "plant": "1020",
+      "storage_location": "",
+      "date": "2025-12-18",
+      "detail": "single"
+    },
+    {
+      "defect": "missing_day",
+      "sheet": "Bestand",
+      "material_id": "80815503",
+      "plant": "1010",
+      "storage_location": "",
+      "date": "2025-12-18",
+      "detail": "single"
+    },
+    {
+      "defect": "missing_day",
+      "sheet": "Bestand",
+      "material_id": "51201703",
+      "plant": "1020",
+      "storage_location": "",
+      "date": "2025-12-22",
+      "detail": "single"
+    },
+    {
+      "defect": "missing_day",
+      "sheet": "Bestand",
+      "material_id": "60240484",
+      "plant": "1020",
+      "storage_location": "",
+      "date": "2025-12-23",
+      "detail": "single"
+    },
+    {
+      "defect": "missing_day",
+      "sheet": "Bestand",
+      "material_id": "42970906",
+      "plant": "1020",
+      "storage_location": "",
+      "date": "2025-12-24",
+      "detail": "single"
+    },
+    {
+      "defect": "missing_day",
+      "sheet": "Bestand",
+      "material_id": "00975848",
+      "plant": "1020",
+      "storage_location": "",
+      "date": "2025-12-28",
+      "detail": "single"
+    },
+    {
+      "defect": "missing_day",
+      "sheet": "Bestand",
+      "material_id": "80815503",
+      "plant": "1010",
+      "storage_location": "",
+      "date": "2025-12-28",
+      "detail": "single"
+    },
+    {
+      "defect": "missing_day",
+      "sheet": "Bestand",
+      "material_id": "90592663",
+      "plant": "1010",
+      "storage_location": "",
+      "date": "2025-12-29",
+      "detail": "single"
+    },
+    {
+      "defect": "missing_day",
+      "sheet": "Bestand",
+      "material_id": "46565671",
+      "plant": "1010",
+      "storage_location": "",
+      "date": "2025-12-31",
+      "detail": "single"
+    },
+    {
+      "defect": "missing_day",
+      "sheet": "Bestand",
+      "material_id": "92104951",
+      "plant": "1020",
+      "storage_location": "",
+      "date": "2025-12-31",
+      "detail": "single"
+    },
+    {
+      "defect": "missing_day",
+      "sheet": "Bestand",
+      "material_id": "18653170",
+      "plant": "1020",
+      "storage_location": "",
+      "date": "2026-01-04",
+      "detail": "single"
+    },
+    {
+      "defect": "missing_day",
+      "sheet": "Bestand",
+      "material_id": "90592663",
+      "plant": "1010",
+      "storage_location": "",
+      "date": "2026-01-05",
+      "detail": "single"
+    },
+    {
+      "defect": "missing_day",
+      "sheet": "Bestand",
+      "material_id": "42970906",
+      "plant": "1010",
+      "storage_location": "",
+      "date": "2026-01-06",
+      "detail": "single"
+    },
+    {
+      "defect": "missing_day",
+      "sheet": "Bestand",
+      "material_id": "00190722",
+      "plant": "1010",
+      "storage_location": "",
+      "date": "2026-01-08",
+      "detail": "single"
+    },
+    {
+      "defect": "missing_day",
+      "sheet": "Bestand",
+      "material_id": "00103233",
+      "plant": "1020",
+      "storage_location": "",
+      "date": "2026-01-09",
+      "detail": "single"
+    },
+    {
+      "defect": "missing_day",
+      "sheet": "Bestand",
+      "material_id": "38998449",
+      "plant": "1020",
+      "storage_location": "",
+      "date": "2026-01-09",
+      "detail": "single"
+    },
+    {
+      "defect": "missing_day",
+      "sheet": "Bestand",
+      "material_id": "00136830",
+      "plant": "1020",
+      "storage_location": "",
+      "date": "2026-01-11",
+      "detail": "single"
+    },
+    {
+      "defect": "missing_day",
+      "sheet": "Bestand",
+      "material_id": "00505343",
+      "plant": "1010",
+      "storage_location": "",
+      "date": "2026-01-12",
+      "detail": "single"
+    },
+    {
+      "defect": "missing_day",
+      "sheet": "Bestand",
+      "material_id": "00783747",
+      "plant": "1020",
+      "storage_location": "",
+      "date": "2026-01-13",
+      "detail": "single"
+    },
+    {
+      "defect": "missing_day",
+      "sheet": "Bestand",
+      "material_id": "26862947",
+      "plant": "1010",
+      "storage_location": "",
+      "date": "2026-01-13",
+      "detail": "single"
+    },
+    {
+      "defect": "missing_day",
+      "sheet": "Bestand",
+      "material_id": "42970906",
+      "plant": "1020",
+      "storage_location": "",
+      "date": "2026-01-13",
+      "detail": "single"
+    },
+    {
+      "defect": "missing_day",
+      "sheet": "Bestand",
+      "material_id": "00438674",
+      "plant": "1010",
+      "storage_location": "",
+      "date": "2026-01-16",
+      "detail": "gap"
+    },
+    {
+      "defect": "missing_day",
+      "sheet": "Bestand",
+      "material_id": "00720291",
+      "plant": "1010",
+      "storage_location": "",
+      "date": "2026-01-16",
+      "detail": "single"
+    },
+    {
+      "defect": "missing_day",
+      "sheet": "Bestand",
+      "material_id": "00438674",
+      "plant": "1010",
+      "storage_location": "",
+      "date": "2026-01-17",
+      "detail": "gap"
+    },
+    {
+      "defect": "missing_day",
+      "sheet": "Bestand",
+      "material_id": "42970906",
+      "plant": "1010",
+      "storage_location": "",
+      "date": "2026-01-17",
+      "detail": "single"
+    },
+    {
+      "defect": "missing_day",
+      "sheet": "Bestand",
+      "material_id": "69613439",
+      "plant": "1010",
+      "storage_location": "",
+      "date": "2026-01-17",
+      "detail": "single"
+    },
+    {
+      "defect": "missing_day",
+      "sheet": "Bestand",
+      "material_id": "00438674",
+      "plant": "1010",
+      "storage_location": "",
+      "date": "2026-01-18",
+      "detail": "gap"
+    },
+    {
+      "defect": "missing_day",
+      "sheet": "Bestand",
+      "material_id": "00103233",
+      "plant": "1010",
+      "storage_location": "",
+      "date": "2026-01-19",
+      "detail": "single"
+    },
+    {
+      "defect": "missing_day",
+      "sheet": "Bestand",
+      "material_id": "00136830",
+      "plant": "1020",
+      "storage_location": "",
+      "date": "2026-01-22",
+      "detail": "single"
+    },
+    {
+      "defect": "missing_day",
+      "sheet": "Bestand",
+      "material_id": "00098355",
+      "plant": "1010",
+      "storage_location": "",
+      "date": "2026-01-23",
+      "detail": "single"
+    },
+    {
+      "defect": "missing_day",
+      "sheet": "Bestand",
+      "material_id": "37800630",
+      "plant": "1010",
+      "storage_location": "",
+      "date": "2026-01-25",
+      "detail": "single"
+    },
+    {
+      "defect": "missing_day",
+      "sheet": "Bestand",
+      "material_id": "00377087",
+      "plant": "1010",
+      "storage_location": "",
+      "date": "2026-01-27",
+      "detail": "single"
+    },
+    {
+      "defect": "missing_day",
+      "sheet": "Bestand",
+      "material_id": "00658008",
+      "plant": "1010",
+      "storage_location": "",
+      "date": "2026-01-28",
+      "detail": "single"
+    },
+    {
+      "defect": "missing_day",
+      "sheet": "Bestand",
+      "material_id": "52337732",
+      "plant": "1020",
+      "storage_location": "",
+      "date": "2026-01-28",
+      "detail": "single"
+    },
+    {
+      "defect": "missing_day",
+      "sheet": "Bestand",
+      "material_id": "70791337",
+      "plant": "1020",
+      "storage_location": "",
+      "date": "2026-01-28",
+      "detail": "single"
+    },
+    {
+      "defect": "missing_day",
+      "sheet": "Bestand",
+      "material_id": "00700379",
+      "plant": "1010",
+      "storage_location": "",
+      "date": "2026-01-29",
+      "detail": "single"
+    },
+    {
+      "defect": "missing_day",
+      "sheet": "Bestand",
+      "material_id": "30194929",
+      "plant": "1020",
+      "storage_location": "",
+      "date": "2026-02-01",
+      "detail": "single"
+    },
+    {
+      "defect": "missing_day",
+      "sheet": "Bestand",
+      "material_id": "60240484",
+      "plant": "1020",
+      "storage_location": "",
+      "date": "2026-02-01",
+      "detail": "single"
+    },
+    {
+      "defect": "missing_day",
+      "sheet": "Bestand",
+      "material_id": "52337732",
+      "plant": "1020",
+      "storage_location": "",
+      "date": "2026-02-02",
+      "detail": "single"
+    },
+    {
+      "defect": "missing_day",
+      "sheet": "Bestand",
+      "material_id": "00720291",
+      "plant": "1010",
+      "storage_location": "",
+      "date": "2026-02-04",
+      "detail": "single"
+    },
+    {
+      "defect": "missing_day",
+      "sheet": "Bestand",
+      "material_id": "00408389",
+      "plant": "1020",
+      "storage_location": "",
+      "date": "2026-02-05",
+      "detail": "single"
+    },
+    {
+      "defect": "missing_day",
+      "sheet": "Bestand",
+      "material_id": "24301245",
+      "plant": "1010",
+      "storage_location": "",
+      "date": "2026-02-06",
+      "detail": "single"
+    },
+    {
+      "defect": "missing_day",
+      "sheet": "Bestand",
+      "material_id": "90592663",
+      "plant": "1020",
+      "storage_location": "",
+      "date": "2026-02-06",
+      "detail": "single"
+    },
+    {
+      "defect": "missing_day",
+      "sheet": "Bestand",
+      "material_id": "80815503",
+      "plant": "1020",
+      "storage_location": "",
+      "date": "2026-02-09",
+      "detail": "single"
+    },
+    {
+      "defect": "missing_day",
+      "sheet": "Bestand",
+      "material_id": "46565671",
+      "plant": "1010",
+      "storage_location": "",
+      "date": "2026-02-10",
+      "detail": "single"
+    },
+    {
+      "defect": "missing_day",
+      "sheet": "Bestand",
+      "material_id": "38998449",
+      "plant": "1020",
+      "storage_location": "",
+      "date": "2026-02-12",
+      "detail": "single"
+    },
+    {
+      "defect": "missing_day",
+      "sheet": "Bestand",
+      "material_id": "60240484",
+      "plant": "1010",
+      "storage_location": "",
+      "date": "2026-02-15",
+      "detail": "single"
+    },
+    {
+      "defect": "missing_day",
+      "sheet": "Bestand",
+      "material_id": "00408389",
+      "plant": "1020",
+      "storage_location": "",
+      "date": "2026-02-20",
+      "detail": "single"
+    },
+    {
+      "defect": "missing_day",
+      "sheet": "Bestand",
+      "material_id": "00720291",
+      "plant": "1010",
+      "storage_location": "",
+      "date": "2026-02-21",
+      "detail": "single"
+    },
+    {
+      "defect": "missing_day",
+      "sheet": "Bestand",
+      "material_id": "90592663",
+      "plant": "1020",
+      "storage_location": "",
+      "date": "2026-02-21",
+      "detail": "single"
+    },
+    {
+      "defect": "missing_day",
+      "sheet": "Bestand",
+      "material_id": "80815503",
+      "plant": "1020",
+      "storage_location": "",
+      "date": "2026-02-23",
+      "detail": "single"
+    },
+    {
+      "defect": "missing_day",
+      "sheet": "Bestand",
+      "material_id": "00549974",
+      "plant": "1020",
+      "storage_location": "",
+      "date": "2026-02-25",
+      "detail": "single"
+    },
+    {
+      "defect": "missing_day",
+      "sheet": "Bestand",
+      "material_id": "00377087",
+      "plant": "1010",
+      "storage_location": "",
+      "date": "2026-02-26",
+      "detail": "single"
+    },
+    {
+      "defect": "missing_day",
+      "sheet": "Bestand",
+      "material_id": "38998449",
+      "plant": "1020",
+      "storage_location": "",
+      "date": "2026-02-28",
+      "detail": "single"
+    },
+    {
+      "defect": "missing_day",
+      "sheet": "Bestand",
+      "material_id": "42970906",
+      "plant": "1020",
+      "storage_location": "",
+      "date": "2026-02-28",
+      "detail": "single"
+    },
+    {
+      "defect": "missing_day",
+      "sheet": "Bestand",
+      "material_id": "00859991",
+      "plant": "1010",
+      "storage_location": "",
+      "date": "2026-03-01",
+      "detail": "single"
+    },
+    {
+      "defect": "missing_day",
+      "sheet": "Bestand",
+      "material_id": "00098355",
+      "plant": "1020",
+      "storage_location": "",
+      "date": "2026-03-02",
+      "detail": "single"
+    },
+    {
+      "defect": "missing_day",
+      "sheet": "Bestand",
+      "material_id": "00841341",
+      "plant": "1010",
+      "storage_location": "",
+      "date": "2026-03-02",
+      "detail": "single"
+    },
+    {
+      "defect": "missing_day",
+      "sheet": "Bestand",
+      "material_id": "00975848",
+      "plant": "1020",
+      "storage_location": "",
+      "date": "2026-03-04",
+      "detail": "single"
+    },
+    {
+      "defect": "missing_day",
+      "sheet": "Bestand",
+      "material_id": "51201703",
+      "plant": "1010",
+      "storage_location": "",
+      "date": "2026-03-05",
+      "detail": "single"
+    },
+    {
+      "defect": "missing_day",
+      "sheet": "Bestand",
+      "material_id": "84108355",
+      "plant": "1010",
+      "storage_location": "",
+      "date": "2026-03-05",
+      "detail": "single"
+    },
+    {
+      "defect": "missing_day",
+      "sheet": "Bestand",
+      "material_id": "00859991",
+      "plant": "1020",
+      "storage_location": "",
+      "date": "2026-03-07",
+      "detail": "single"
+    },
+    {
+      "defect": "missing_day",
+      "sheet": "Bestand",
+      "material_id": "00549974",
+      "plant": "1010",
+      "storage_location": "",
+      "date": "2026-03-08",
+      "detail": "single"
+    },
+    {
+      "defect": "missing_day",
+      "sheet": "Bestand",
+      "material_id": "00095084",
+      "plant": "1020",
+      "storage_location": "",
+      "date": "2026-03-09",
+      "detail": "single"
+    },
+    {
+      "defect": "missing_day",
+      "sheet": "Bestand",
+      "material_id": "78338108",
+      "plant": "1020",
+      "storage_location": "",
+      "date": "2026-03-11",
+      "detail": "single"
+    },
+    {
+      "defect": "missing_day",
+      "sheet": "Bestand",
+      "material_id": "00975848",
+      "plant": "1020",
+      "storage_location": "",
+      "date": "2026-03-12",
+      "detail": "single"
+    },
+    {
+      "defect": "missing_day",
+      "sheet": "Bestand",
+      "material_id": "24301245",
+      "plant": "1010",
+      "storage_location": "",
+      "date": "2026-03-15",
+      "detail": "single"
+    },
+    {
+      "defect": "missing_day",
+      "sheet": "Bestand",
+      "material_id": "00824532",
+      "plant": "1020",
+      "storage_location": "",
+      "date": "2026-03-18",
+      "detail": "single"
+    },
+    {
+      "defect": "missing_day",
+      "sheet": "Bestand",
+      "material_id": "38998449",
+      "plant": "1020",
+      "storage_location": "",
+      "date": "2026-03-18",
+      "detail": "single"
+    },
+    {
+      "defect": "missing_day",
+      "sheet": "Bestand",
+      "material_id": "60240484",
+      "plant": "1020",
+      "storage_location": "",
+      "date": "2026-03-18",
+      "detail": "single"
+    },
+    {
+      "defect": "missing_day",
+      "sheet": "Bestand",
+      "material_id": "93687235",
+      "plant": "1020",
+      "storage_location": "",
+      "date": "2026-03-19",
+      "detail": "single"
+    },
+    {
+      "defect": "missing_day",
+      "sheet": "Bestand",
+      "material_id": "52337732",
+      "plant": "1020",
+      "storage_location": "",
+      "date": "2026-03-20",
+      "detail": "single"
+    },
+    {
+      "defect": "missing_day",
+      "sheet": "Bestand",
+      "material_id": "51201703",
+      "plant": "1020",
+      "storage_location": "",
+      "date": "2026-03-22",
+      "detail": "single"
+    },
+    {
+      "defect": "missing_day",
+      "sheet": "Bestand",
+      "material_id": "92104951",
+      "plant": "1020",
+      "storage_location": "",
+      "date": "2026-03-24",
+      "detail": "single"
+    },
+    {
+      "defect": "missing_day",
+      "sheet": "Bestand",
+      "material_id": "30194929",
+      "plant": "1020",
+      "storage_location": "",
+      "date": "2026-03-26",
+      "detail": "single"
+    },
+    {
+      "defect": "missing_day",
+      "sheet": "Bestand",
+      "material_id": "00700379",
+      "plant": "1020",
+      "storage_location": "",
+      "date": "2026-03-27",
+      "detail": "single"
+    },
+    {
+      "defect": "missing_day",
+      "sheet": "Bestand",
+      "material_id": "00841341",
+      "plant": "1010",
+      "storage_location": "",
+      "date": "2026-03-27",
+      "detail": "single"
+    },
+    {
+      "defect": "missing_day",
+      "sheet": "Bestand",
+      "material_id": "38998449",
+      "plant": "1010",
+      "storage_location": "",
+      "date": "2026-03-27",
+      "detail": "single"
+    },
+    {
+      "defect": "missing_day",
+      "sheet": "Bestand",
+      "material_id": "21563012",
+      "plant": "1020",
+      "storage_location": "",
+      "date": "2026-03-28",
+      "detail": "single"
+    },
+    {
+      "defect": "missing_day",
+      "sheet": "Bestand",
+      "material_id": "26862947",
+      "plant": "1010",
+      "storage_location": "",
+      "date": "2026-03-29",
+      "detail": "single"
+    },
+    {
+      "defect": "missing_day",
+      "sheet": "Bestand",
+      "material_id": "78338108",
+      "plant": "1020",
+      "storage_location": "",
+      "date": "2026-03-29",
+      "detail": "single"
+    },
+    {
+      "defect": "missing_day",
+      "sheet": "Bestand",
+      "material_id": "51790458",
+      "plant": "1020",
+      "storage_location": "",
+      "date": "2026-03-30",
+      "detail": "single"
+    },
+    {
+      "defect": "missing_day",
+      "sheet": "Bestand",
+      "material_id": "38998449",
+      "plant": "1020",
+      "storage_location": "",
+      "date": "2026-04-02",
+      "detail": "single"
+    },
+    {
+      "defect": "missing_day",
+      "sheet": "Bestand",
+      "material_id": "42970906",
+      "plant": "1020",
+      "storage_location": "",
+      "date": "2026-04-02",
+      "detail": "single"
+    },
+    {
+      "defect": "missing_day",
+      "sheet": "Bestand",
+      "material_id": "00531204",
+      "plant": "1020",
+      "storage_location": "",
+      "date": "2026-04-04",
+      "detail": "single"
+    },
+    {
+      "defect": "missing_day",
+      "sheet": "Bestand",
+      "material_id": "30194929",
+      "plant": "1010",
+      "storage_location": "",
+      "date": "2026-04-04",
+      "detail": "single"
+    },
+    {
+      "defect": "missing_day",
+      "sheet": "Bestand",
+      "material_id": "60240484",
+      "plant": "1020",
+      "storage_location": "",
+      "date": "2026-04-05",
+      "detail": "single"
+    },
+    {
+      "defect": "missing_day",
+      "sheet": "Bestand",
+      "material_id": "00103233",
+      "plant": "1010",
+      "storage_location": "",
+      "date": "2026-04-08",
+      "detail": "single"
+    },
+    {
+      "defect": "missing_day",
+      "sheet": "Bestand",
+      "material_id": "00776194",
+      "plant": "1020",
+      "storage_location": "",
+      "date": "2026-04-08",
+      "detail": "single"
+    },
+    {
+      "defect": "missing_day",
+      "sheet": "Bestand",
+      "material_id": "60240484",
+      "plant": "1020",
+      "storage_location": "",
+      "date": "2026-04-08",
+      "detail": "single"
+    },
+    {
+      "defect": "missing_day",
+      "sheet": "Bestand",
+      "material_id": "00783747",
+      "plant": "1020",
+      "storage_location": "",
+      "date": "2026-04-09",
+      "detail": "single"
+    },
+    {
+      "defect": "missing_day",
+      "sheet": "Bestand",
+      "material_id": "00776194",
+      "plant": "1020",
+      "storage_location": "",
+      "date": "2026-04-10",
+      "detail": "single"
+    },
+    {
+      "defect": "missing_day",
+      "sheet": "Bestand",
+      "material_id": "00103233",
+      "plant": "1020",
+      "storage_location": "",
+      "date": "2026-04-12",
+      "detail": "single"
+    },
+    {
+      "defect": "missing_day",
+      "sheet": "Bestand",
+      "material_id": "30194929",
+      "plant": "1020",
+      "storage_location": "",
+      "date": "2026-04-13",
+      "detail": "single"
+    },
+    {
+      "defect": "missing_day",
+      "sheet": "Bestand",
+      "material_id": "51790458",
+      "plant": "1020",
+      "storage_location": "",
+      "date": "2026-04-15",
+      "detail": "single"
+    },
+    {
+      "defect": "missing_day",
+      "sheet": "Bestand",
+      "material_id": "00841341",
+      "plant": "1010",
+      "storage_location": "",
+      "date": "2026-04-19",
+      "detail": "single"
+    },
+    {
+      "defect": "missing_day",
+      "sheet": "Bestand",
+      "material_id": "30194929",
+      "plant": "1020",
+      "storage_location": "",
+      "date": "2026-04-19",
+      "detail": "single"
+    },
+    {
+      "defect": "missing_day",
+      "sheet": "Bestand",
+      "material_id": "42631186",
+      "plant": "1010",
+      "storage_location": "",
+      "date": "2026-04-21",
+      "detail": "single"
+    },
+    {
+      "defect": "missing_day",
+      "sheet": "Bestand",
+      "material_id": "71096551",
+      "plant": "1020",
+      "storage_location": "",
+      "date": "2026-04-21",
+      "detail": "single"
+    },
+    {
+      "defect": "missing_day",
+      "sheet": "Bestand",
+      "material_id": "46565671",
+      "plant": "1010",
+      "storage_location": "",
+      "date": "2026-04-23",
+      "detail": "single"
+    },
+    {
+      "defect": "missing_day",
+      "sheet": "Bestand",
+      "material_id": "90592663",
+      "plant": "1010",
+      "storage_location": "",
+      "date": "2026-04-23",
+      "detail": "single"
+    },
+    {
+      "defect": "missing_day",
+      "sheet": "Bestand",
+      "material_id": "00444478",
+      "plant": "1010",
+      "storage_location": "",
+      "date": "2026-04-24",
+      "detail": "single"
+    },
+    {
+      "defect": "missing_day",
+      "sheet": "Bestand",
+      "material_id": "00859991",
+      "plant": "1010",
+      "storage_location": "",
+      "date": "2026-04-24",
+      "detail": "single"
+    },
+    {
+      "defect": "missing_day",
+      "sheet": "Bestand",
+      "material_id": "96108341",
+      "plant": "1010",
+      "storage_location": "",
+      "date": "2026-04-26",
+      "detail": "single"
+    },
+    {
+      "defect": "missing_day",
+      "sheet": "Bestand",
+      "material_id": "69613439",
+      "plant": "1020",
+      "storage_location": "",
+      "date": "2026-04-27",
+      "detail": "single"
+    },
+    {
+      "defect": "missing_day",
+      "sheet": "Bestand",
+      "material_id": "71096551",
+      "plant": "1020",
+      "storage_location": "",
+      "date": "2026-04-28",
+      "detail": "single"
+    },
+    {
+      "defect": "missing_day",
+      "sheet": "Bestand",
+      "material_id": "30194929",
+      "plant": "1010",
+      "storage_location": "",
+      "date": "2026-04-29",
+      "detail": "gap"
+    },
+    {
+      "defect": "missing_day",
+      "sheet": "Bestand",
+      "material_id": "00776194",
+      "plant": "1020",
+      "storage_location": "",
+      "date": "2026-04-30",
+      "detail": "single"
+    },
+    {
+      "defect": "missing_day",
+      "sheet": "Bestand",
+      "material_id": "30194929",
+      "plant": "1010",
+      "storage_location": "",
+      "date": "2026-04-30",
+      "detail": "gap"
+    },
+    {
+      "defect": "missing_day",
+      "sheet": "Bestand",
+      "material_id": "00776194",
+      "plant": "1020",
+      "storage_location": "",
+      "date": "2026-05-01",
+      "detail": "single"
+    },
+    {
+      "defect": "missing_day",
+      "sheet": "Bestand",
+      "material_id": "30194929",
+      "plant": "1010",
+      "storage_location": "",
+      "date": "2026-05-01",
+      "detail": "gap"
+    },
+    {
+      "defect": "missing_day",
+      "sheet": "Bestand",
+      "material_id": "48906517",
+      "plant": "1010",
+      "storage_location": "",
+      "date": "2026-05-01",
+      "detail": "single"
+    },
+    {
+      "defect": "missing_day",
+      "sheet": "Bestand",
+      "material_id": "30194929",
+      "plant": "1010",
+      "storage_location": "",
+      "date": "2026-05-02",
+      "detail": "gap"
+    },
+    {
+      "defect": "missing_day",
+      "sheet": "Bestand",
+      "material_id": "24301245",
+      "plant": "1020",
+      "storage_location": "",
+      "date": "2026-05-04",
+      "detail": "single"
+    },
+    {
+      "defect": "missing_day",
+      "sheet": "Bestand",
+      "material_id": "42970906",
+      "plant": "1010",
+      "storage_location": "",
+      "date": "2026-05-04",
+      "detail": "single"
+    },
+    {
+      "defect": "missing_day",
+      "sheet": "Bestand",
+      "material_id": "51790458",
+      "plant": "1020",
+      "storage_location": "",
+      "date": "2026-05-07",
+      "detail": "single"
+    },
+    {
+      "defect": "missing_day",
+      "sheet": "Bestand",
+      "material_id": "30194929",
+      "plant": "1010",
+      "storage_location": "",
+      "date": "2026-05-09",
+      "detail": "single"
+    },
+    {
+      "defect": "missing_day",
+      "sheet": "Bestand",
+      "material_id": "00549974",
+      "plant": "1010",
+      "storage_location": "",
+      "date": "2026-05-10",
+      "detail": "single"
+    },
+    {
+      "defect": "missing_day",
+      "sheet": "Bestand",
+      "material_id": "00549974",
+      "plant": "1020",
+      "storage_location": "",
+      "date": "2026-05-13",
+      "detail": "single"
+    },
+    {
+      "defect": "missing_day",
+      "sheet": "Bestand",
+      "material_id": "00549974",
+      "plant": "1010",
+      "storage_location": "",
+      "date": "2026-05-14",
+      "detail": "single"
+    },
+    {
+      "defect": "missing_day",
+      "sheet": "Bestand",
+      "material_id": "51790458",
+      "plant": "1020",
+      "storage_location": "",
+      "date": "2026-05-14",
+      "detail": "single"
+    },
+    {
+      "defect": "missing_day",
+      "sheet": "Bestand",
+      "material_id": "00841341",
+      "plant": "1010",
+      "storage_location": "",
+      "date": "2026-05-16",
+      "detail": "single"
+    },
+    {
+      "defect": "missing_day",
+      "sheet": "Bestand",
+      "material_id": "00824532",
+      "plant": "1020",
+      "storage_location": "",
+      "date": "2026-05-19",
+      "detail": "single"
+    },
+    {
+      "defect": "missing_day",
+      "sheet": "Bestand",
+      "material_id": "92104951",
+      "plant": "1020",
+      "storage_location": "",
+      "date": "2026-05-20",
+      "detail": "single"
+    },
+    {
+      "defect": "missing_day",
+      "sheet": "Bestand",
+      "material_id": "42970906",
+      "plant": "1020",
+      "storage_location": "",
+      "date": "2026-05-21",
+      "detail": "single"
+    },
+    {
+      "defect": "missing_day",
+      "sheet": "Bestand",
+      "material_id": "00098355",
+      "plant": "1010",
+      "storage_location": "",
+      "date": "2026-05-22",
+      "detail": "single"
+    },
+    {
+      "defect": "missing_day",
+      "sheet": "Bestand",
+      "material_id": "00738382",
+      "plant": "1010",
+      "storage_location": "",
+      "date": "2026-05-23",
+      "detail": "single"
+    },
+    {
+      "defect": "missing_day",
+      "sheet": "Bestand",
+      "material_id": "00720291",
+      "plant": "1010",
+      "storage_location": "",
+      "date": "2026-05-25",
+      "detail": "single"
+    },
+    {
+      "defect": "missing_day",
+      "sheet": "Bestand",
+      "material_id": "92104951",
+      "plant": "1020",
+      "storage_location": "",
+      "date": "2026-05-25",
+      "detail": "single"
+    },
+    {
+      "defect": "missing_day",
+      "sheet": "Bestand",
+      "material_id": "00859991",
+      "plant": "1010",
+      "storage_location": "",
+      "date": "2026-05-26",
+      "detail": "single"
+    },
+    {
+      "defect": "missing_day",
+      "sheet": "Bestand",
+      "material_id": "00720291",
+      "plant": "1010",
+      "storage_location": "",
+      "date": "2026-05-29",
+      "detail": "single"
+    },
+    {
+      "defect": "missing_day",
+      "sheet": "Bestand",
+      "material_id": "72323591",
+      "plant": "1010",
+      "storage_location": "",
+      "date": "2026-05-29",
+      "detail": "single"
+    },
+    {
+      "defect": "missing_day",
+      "sheet": "Bestand",
+      "material_id": "00448980",
+      "plant": "1010",
+      "storage_location": "",
+      "date": "2026-05-30",
+      "detail": "single"
+    },
+    {
+      "defect": "missing_day",
+      "sheet": "Bestand",
+      "material_id": "00788192",
+      "plant": "1010",
+      "storage_location": "",
+      "date": "2026-05-30",
+      "detail": "single"
+    },
+    {
+      "defect": "missing_day",
+      "sheet": "Bestand",
+      "material_id": "30194929",
+      "plant": "1020",
+      "storage_location": "",
+      "date": "2026-05-30",
+      "detail": "single"
+    },
+    {
+      "defect": "missing_day",
+      "sheet": "Bestand",
+      "material_id": "90592663",
+      "plant": "1010",
+      "storage_location": "",
+      "date": "2026-06-01",
+      "detail": "single"
+    },
+    {
+      "defect": "missing_day",
+      "sheet": "Bestand",
+      "material_id": "18653170",
+      "plant": "1010",
+      "storage_location": "",
+      "date": "2026-06-03",
+      "detail": "single"
+    },
+    {
+      "defect": "missing_day",
+      "sheet": "Bestand",
+      "material_id": "42631186",
+      "plant": "1010",
+      "storage_location": "",
+      "date": "2026-06-03",
+      "detail": "single"
+    },
+    {
+      "defect": "missing_day",
+      "sheet": "Bestand",
+      "material_id": "71096551",
+      "plant": "1010",
+      "storage_location": "",
+      "date": "2026-06-03",
+      "detail": "single"
+    },
+    {
+      "defect": "missing_day",
+      "sheet": "Bestand",
+      "material_id": "66049020",
+      "plant": "1010",
+      "storage_location": "",
+      "date": "2026-06-06",
+      "detail": "single"
+    },
+    {
+      "defect": "missing_day",
+      "sheet": "Bestand",
+      "material_id": "78338108",
+      "plant": "1020",
+      "storage_location": "",
+      "date": "2026-06-06",
+      "detail": "gap"
+    },
+    {
+      "defect": "missing_day",
+      "sheet": "Bestand",
+      "material_id": "00438674",
+      "plant": "1010",
+      "storage_location": "",
+      "date": "2026-06-07",
+      "detail": "single"
+    },
+    {
+      "defect": "missing_day",
+      "sheet": "Bestand",
+      "material_id": "78338108",
+      "plant": "1020",
+      "storage_location": "",
+      "date": "2026-06-07",
+      "detail": "gap"
+    },
+    {
+      "defect": "missing_day",
+      "sheet": "Bestand",
+      "material_id": "78338108",
+      "plant": "1020",
+      "storage_location": "",
+      "date": "2026-06-08",
+      "detail": "gap"
+    },
+    {
+      "defect": "missing_day",
+      "sheet": "Bestand",
+      "material_id": "38998449",
+      "plant": "1010",
+      "storage_location": "",
+      "date": "2026-06-09",
+      "detail": "single"
+    },
+    {
+      "defect": "missing_day",
+      "sheet": "Bestand",
+      "material_id": "78338108",
+      "plant": "1020",
+      "storage_location": "",
+      "date": "2026-06-09",
+      "detail": "gap"
+    },
+    {
+      "defect": "missing_day",
+      "sheet": "Bestand",
+      "material_id": "84108355",
+      "plant": "1010",
+      "storage_location": "",
+      "date": "2026-06-10",
+      "detail": "single"
+    },
+    {
+      "defect": "missing_day",
+      "sheet": "Bestand",
+      "material_id": "00103233",
+      "plant": "1010",
+      "storage_location": "",
+      "date": "2026-06-11",
+      "detail": "single"
+    },
+    {
+      "defect": "missing_day",
+      "sheet": "Bestand",
+      "material_id": "38998449",
+      "plant": "1010",
+      "storage_location": "",
+      "date": "2026-06-11",
+      "detail": "single"
+    },
+    {
+      "defect": "missing_day",
+      "sheet": "Bestand",
+      "material_id": "51201703",
+      "plant": "1010",
+      "storage_location": "",
+      "date": "2026-06-11",
+      "detail": "single"
+    },
+    {
+      "defect": "missing_day",
+      "sheet": "Bestand",
+      "material_id": "71096551",
+      "plant": "1020",
+      "storage_location": "",
+      "date": "2026-06-11",
+      "detail": "single"
+    },
+    {
+      "defect": "missing_day",
+      "sheet": "Bestand",
+      "material_id": "92104951",
+      "plant": "1020",
+      "storage_location": "",
+      "date": "2026-06-11",
+      "detail": "single"
+    },
+    {
+      "defect": "missing_day",
+      "sheet": "Bestand",
+      "material_id": "00549974",
+      "plant": "1010",
+      "storage_location": "",
+      "date": "2026-06-15",
+      "detail": "single"
+    },
+    {
+      "defect": "missing_day",
+      "sheet": "Bestand",
+      "material_id": "51201703",
+      "plant": "1020",
+      "storage_location": "",
+      "date": "2026-06-17",
+      "detail": "single"
+    },
+    {
+      "defect": "missing_day",
+      "sheet": "Bestand",
+      "material_id": "00763516",
+      "plant": "1020",
+      "storage_location": "",
+      "date": "2026-06-18",
+      "detail": "single"
+    },
+    {
+      "defect": "missing_day",
+      "sheet": "Bestand",
+      "material_id": "00103233",
+      "plant": "1010",
+      "storage_location": "",
+      "date": "2026-06-19",
+      "detail": "single"
+    },
+    {
+      "defect": "missing_day",
+      "sheet": "Bestand",
+      "material_id": "24301245",
+      "plant": "1010",
+      "storage_location": "",
+      "date": "2026-06-20",
+      "detail": "single"
+    },
+    {
+      "defect": "missing_day",
+      "sheet": "Bestand",
+      "material_id": "60240484",
+      "plant": "1010",
+      "storage_location": "",
+      "date": "2026-06-22",
+      "detail": "single"
+    },
+    {
+      "defect": "missing_day",
+      "sheet": "Bestand",
+      "material_id": "71096551",
+      "plant": "1020",
+      "storage_location": "",
+      "date": "2026-06-23",
+      "detail": "single"
+    },
+    {
+      "defect": "missing_day",
+      "sheet": "Bestand",
+      "material_id": "80815503",
+      "plant": "1020",
+      "storage_location": "",
+      "date": "2026-06-25",
+      "detail": "single"
+    },
+    {
+      "defect": "missing_day",
+      "sheet": "Bestand",
+      "material_id": "00763516",
+      "plant": "1020",
+      "storage_location": "",
+      "date": "2026-06-27",
+      "detail": "single"
+    },
+    {
+      "defect": "missing_day",
+      "sheet": "Bestand",
+      "material_id": "66049020",
+      "plant": "1020",
+      "storage_location": "",
+      "date": "2026-06-27",
+      "detail": "single"
+    },
+    {
+      "defect": "missing_day",
+      "sheet": "Bestand",
+      "material_id": "84108355",
+      "plant": "1010",
+      "storage_location": "",
+      "date": "2026-06-27",
+      "detail": "single"
+    },
+    {
+      "defect": "missing_day",
+      "sheet": "Bestand",
+      "material_id": "69613439",
+      "plant": "1010",
+      "storage_location": "",
+      "date": "2026-07-01",
+      "detail": "single"
+    },
+    {
+      "defect": "missing_day",
+      "sheet": "Bestand",
+      "material_id": "46565671",
+      "plant": "1010",
+      "storage_location": "",
+      "date": "2026-07-02",
+      "detail": "single"
+    },
+    {
+      "defect": "missing_day",
+      "sheet": "Bestand",
+      "material_id": "18653170",
+      "plant": "1020",
+      "storage_location": "",
+      "date": "2026-07-04",
+      "detail": "single"
+    },
+    {
+      "defect": "missing_day",
+      "sheet": "Bestand",
+      "material_id": "90592663",
+      "plant": "1010",
+      "storage_location": "",
+      "date": "2026-07-05",
+      "detail": "single"
+    },
+    {
+      "defect": "missing_day",
+      "sheet": "Bestand",
+      "material_id": "24301245",
+      "plant": "1010",
+      "storage_location": "",
+      "date": "2026-07-06",
+      "detail": "single"
+    },
+    {
+      "defect": "missing_day",
+      "sheet": "Bestand",
+      "material_id": "00098355",
+      "plant": "1020",
+      "storage_location": "",
+      "date": "2026-07-07",
+      "detail": "single"
+    },
+    {
+      "defect": "missing_day",
+      "sheet": "Bestand",
+      "material_id": "71096551",
+      "plant": "1020",
+      "storage_location": "",
+      "date": "2026-07-07",
+      "detail": "single"
+    },
+    {
+      "defect": "missing_day",
+      "sheet": "Bestand",
+      "material_id": "52337732",
+      "plant": "1020",
+      "storage_location": "",
+      "date": "2026-07-08",
+      "detail": "single"
+    },
+    {
+      "defect": "missing_day",
+      "sheet": "Bestand",
+      "material_id": "00103233",
+      "plant": "1010",
+      "storage_location": "",
+      "date": "2026-07-11",
+      "detail": "single"
+    },
+    {
+      "defect": "missing_day",
+      "sheet": "Bestand",
+      "material_id": "00518087",
+      "plant": "1020",
+      "storage_location": "",
+      "date": "2026-07-12",
+      "detail": "single"
+    },
+    {
+      "defect": "missing_day",
+      "sheet": "Bestand",
+      "material_id": "71096551",
+      "plant": "1020",
+      "storage_location": "",
+      "date": "2026-07-12",
+      "detail": "single"
+    },
+    {
+      "defect": "missing_day",
+      "sheet": "Bestand",
+      "material_id": "00444478",
+      "plant": "1010",
+      "storage_location": "",
+      "date": "2026-07-14",
+      "detail": "single"
+    },
+    {
+      "defect": "missing_day",
+      "sheet": "Bestand",
+      "material_id": "18653170",
+      "plant": "1020",
+      "storage_location": "",
+      "date": "2026-07-14",
+      "detail": "single"
+    },
+    {
+      "defect": "missing_day",
+      "sheet": "Bestand",
+      "material_id": "24301245",
+      "plant": "1020",
+      "storage_location": "",
+      "date": "2026-07-16",
+      "detail": "single"
+    },
+    {
+      "defect": "missing_day",
+      "sheet": "Bestand",
+      "material_id": "71096551",
+      "plant": "1020",
+      "storage_location": "",
+      "date": "2026-07-16",
+      "detail": "single"
+    },
+    {
+      "defect": "missing_day",
+      "sheet": "Bestand",
+      "material_id": "39387469",
+      "plant": "1010",
+      "storage_location": "",
+      "date": "2026-07-18",
+      "detail": "single"
+    },
+    {
+      "defect": "missing_day",
+      "sheet": "Bestand",
+      "material_id": "69613439",
+      "plant": "1020",
+      "storage_location": "",
+      "date": "2026-07-18",
+      "detail": "single"
+    },
+    {
+      "defect": "missing_day",
+      "sheet": "Bestand",
+      "material_id": "16794542",
+      "plant": "1020",
+      "storage_location": "",
+      "date": "2026-07-19",
+      "detail": "single"
+    },
+    {
+      "defect": "missing_day",
+      "sheet": "Bestand",
+      "material_id": "52337732",
+      "plant": "1010",
+      "storage_location": "",
+      "date": "2026-07-19",
+      "detail": "single"
+    },
+    {
+      "defect": "missing_day",
+      "sheet": "Bestand",
+      "material_id": "60240484",
+      "plant": "1020",
+      "storage_location": "",
+      "date": "2026-07-20",
+      "detail": "single"
+    },
+    {
+      "defect": "missing_day",
+      "sheet": "Bestand",
+      "material_id": "90592663",
+      "plant": "1010",
+      "storage_location": "",
+      "date": "2026-07-20",
+      "detail": "single"
+    },
+    {
+      "defect": "missing_day",
+      "sheet": "Bestand",
+      "material_id": "00647423",
+      "plant": "1020",
+      "storage_location": "",
+      "date": "2026-07-26",
+      "detail": "single"
+    },
+    {
+      "defect": "missing_day",
+      "sheet": "Bestand",
+      "material_id": "90592663",
+      "plant": "1020",
+      "storage_location": "",
+      "date": "2026-07-26",
+      "detail": "single"
+    },
+    {
+      "defect": "missing_day",
+      "sheet": "Bestand",
+      "material_id": "00103233",
+      "plant": "1010",
+      "storage_location": "",
+      "date": "2026-07-28",
+      "detail": "single"
+    },
+    {
+      "defect": "missing_day",
+      "sheet": "Bestand",
+      "material_id": "38998449",
+      "plant": "1020",
+      "storage_location": "",
+      "date": "2026-07-28",
+      "detail": "single"
+    },
+    {
+      "defect": "missing_day",
+      "sheet": "Bestand",
+      "material_id": "00549974",
+      "plant": "1020",
+      "storage_location": "",
+      "date": "2026-07-29",
+      "detail": "single"
+    },
+    {
+      "defect": "missing_day",
+      "sheet": "Bestand",
+      "material_id": "96108341",
+      "plant": "1010",
+      "storage_location": "",
+      "date": "2026-07-31",
+      "detail": "single"
+    },
+    {
+      "defect": "missing_day",
+      "sheet": "Bestand",
+      "material_id": "69613439",
+      "plant": "1020",
+      "storage_location": "",
+      "date": "2026-08-03",
+      "detail": "single"
+    },
+    {
+      "defect": "missing_day",
+      "sheet": "Bestand",
+      "material_id": "00136830",
+      "plant": "1020",
+      "storage_location": "",
+      "date": "2026-08-06",
+      "detail": "single"
+    },
+    {
+      "defect": "missing_day",
+      "sheet": "Bestand",
+      "material_id": "70791337",
+      "plant": "1020",
+      "storage_location": "",
+      "date": "2026-08-06",
+      "detail": "single"
+    },
+    {
+      "defect": "missing_day",
+      "sheet": "Bestand",
+      "material_id": "42970906",
+      "plant": "1010",
+      "storage_location": "",
+      "date": "2026-08-07",
+      "detail": "single"
+    },
+    {
+      "defect": "missing_day",
+      "sheet": "Bestand",
+      "material_id": "00103233",
+      "plant": "1020",
+      "storage_location": "",
+      "date": "2026-08-09",
+      "detail": "single"
+    },
+    {
+      "defect": "missing_day",
+      "sheet": "Bestand",
+      "material_id": "00738382",
+      "plant": "1010",
+      "storage_location": "",
+      "date": "2026-08-10",
+      "detail": "single"
+    },
+    {
+      "defect": "missing_day",
+      "sheet": "Bestand",
+      "material_id": "84108355",
+      "plant": "1010",
+      "storage_location": "",
+      "date": "2026-08-11",
+      "detail": "single"
+    },
+    {
+      "defect": "missing_day",
+      "sheet": "Bestand",
+      "material_id": "66049020",
+      "plant": "1020",
+      "storage_location": "",
+      "date": "2026-08-12",
+      "detail": "single"
+    },
+    {
+      "defect": "missing_day",
+      "sheet": "Bestand",
+      "material_id": "66049020",
+      "plant": "1010",
+      "storage_location": "",
+      "date": "2026-08-13",
+      "detail": "single"
+    },
+    {
+      "defect": "missing_day",
+      "sheet": "Bestand",
+      "material_id": "00531204",
+      "plant": "1020",
+      "storage_location": "",
+      "date": "2026-08-14",
+      "detail": "single"
+    },
+    {
+      "defect": "missing_day",
+      "sheet": "Bestand",
+      "material_id": "00136830",
+      "plant": "1020",
+      "storage_location": "",
+      "date": "2026-08-17",
+      "detail": "single"
+    },
+    {
+      "defect": "missing_day",
+      "sheet": "Bestand",
+      "material_id": "48906517",
+      "plant": "1010",
+      "storage_location": "",
+      "date": "2026-08-19",
+      "detail": "single"
+    },
+    {
+      "defect": "missing_day",
+      "sheet": "Bestand",
+      "material_id": "69613439",
+      "plant": "1010",
+      "storage_location": "",
+      "date": "2026-08-21",
+      "detail": "single"
+    },
+    {
+      "defect": "missing_day",
+      "sheet": "Bestand",
+      "material_id": "70791337",
+      "plant": "1020",
+      "storage_location": "",
+      "date": "2026-08-21",
+      "detail": "single"
+    },
+    {
+      "defect": "missing_day",
+      "sheet": "Bestand",
+      "material_id": "93687235",
+      "plant": "1020",
+      "storage_location": "",
+      "date": "2026-08-22",
+      "detail": "single"
+    },
+    {
+      "defect": "missing_day",
+      "sheet": "Bestand",
+      "material_id": "00408389",
+      "plant": "1020",
+      "storage_location": "",
+      "date": "2026-08-24",
+      "detail": "single"
+    },
+    {
+      "defect": "missing_day",
+      "sheet": "Bestand",
+      "material_id": "00788192",
+      "plant": "1010",
+      "storage_location": "",
+      "date": "2026-08-24",
+      "detail": "single"
+    },
+    {
+      "defect": "missing_day",
+      "sheet": "Bestand",
+      "material_id": "38998449",
+      "plant": "1020",
+      "storage_location": "",
+      "date": "2026-08-24",
+      "detail": "single"
+    },
+    {
+      "defect": "missing_day",
+      "sheet": "Bestand",
+      "material_id": "80815503",
+      "plant": "1020",
+      "storage_location": "",
+      "date": "2026-08-24",
+      "detail": "single"
+    },
+    {
+      "defect": "missing_day",
+      "sheet": "Bestand",
+      "material_id": "00377087",
+      "plant": "1010",
+      "storage_location": "",
+      "date": "2026-08-25",
+      "detail": "single"
+    },
+    {
+      "defect": "missing_day",
+      "sheet": "Bestand",
+      "material_id": "18653170",
+      "plant": "1020",
+      "storage_location": "",
+      "date": "2026-08-28",
+      "detail": "single"
+    },
+    {
+      "defect": "missing_day",
+      "sheet": "Bestand",
+      "material_id": "84108355",
+      "plant": "1010",
+      "storage_location": "",
+      "date": "2026-08-29",
+      "detail": "single"
+    },
+    {
+      "defect": "missing_day",
+      "sheet": "Bestand",
+      "material_id": "72323591",
+      "plant": "1010",
+      "storage_location": "",
+      "date": "2026-08-30",
+      "detail": "single"
+    },
+    {
+      "defect": "missing_day",
+      "sheet": "Bestand",
+      "material_id": "00103233",
+      "plant": "1010",
+      "storage_location": "",
+      "date": "2026-08-31",
+      "detail": "single"
+    },
+    {
+      "defect": "missing_day",
+      "sheet": "Bestand",
+      "material_id": "24301245",
+      "plant": "1020",
+      "storage_location": "",
+      "date": "2026-09-04",
+      "detail": "single"
+    },
+    {
+      "defect": "missing_day",
+      "sheet": "Bestand",
+      "material_id": "00098355",
+      "plant": "1020",
+      "storage_location": "",
+      "date": "2026-09-06",
+      "detail": "single"
+    },
+    {
+      "defect": "missing_day",
+      "sheet": "Bestand",
+      "material_id": "00455877",
+      "plant": "1010",
+      "storage_location": "",
+      "date": "2026-09-06",
+      "detail": "single"
+    },
+    {
+      "defect": "missing_day",
+      "sheet": "Bestand",
+      "material_id": "72323591",
+      "plant": "1010",
+      "storage_location": "",
+      "date": "2026-09-07",
+      "detail": "single"
+    },
+    {
+      "defect": "missing_day",
+      "sheet": "Bestand",
+      "material_id": "52337732",
+      "plant": "1010",
+      "storage_location": "",
+      "date": "2026-09-08",
+      "detail": "single"
+    },
+    {
+      "defect": "missing_day",
+      "sheet": "Bestand",
+      "material_id": "52337732",
+      "plant": "1020",
+      "storage_location": "",
+      "date": "2026-09-09",
+      "detail": "single"
+    },
+    {
+      "defect": "missing_day",
+      "sheet": "Bestand",
+      "material_id": "78338108",
+      "plant": "1010",
+      "storage_location": "",
+      "date": "2026-09-09",
+      "detail": "single"
+    },
+    {
+      "defect": "missing_day",
+      "sheet": "Bestand",
+      "material_id": "00098355",
+      "plant": "1020",
+      "storage_location": "",
+      "date": "2026-09-14",
+      "detail": "single"
+    },
+    {
+      "defect": "missing_day",
+      "sheet": "Bestand",
+      "material_id": "76283811",
+      "plant": "1010",
+      "storage_location": "",
+      "date": "2026-09-14",
+      "detail": "single"
+    },
+    {
+      "defect": "missing_day",
+      "sheet": "Bestand",
+      "material_id": "00518087",
+      "plant": "1020",
+      "storage_location": "",
+      "date": "2026-09-18",
+      "detail": "single"
+    },
+    {
+      "defect": "missing_day",
+      "sheet": "Bestand",
+      "material_id": "00720291",
+      "plant": "1010",
+      "storage_location": "",
+      "date": "2026-09-18",
+      "detail": "single"
+    },
+    {
+      "defect": "missing_day",
+      "sheet": "Bestand",
+      "material_id": "00700379",
+      "plant": "1010",
+      "storage_location": "",
+      "date": "2026-09-21",
+      "detail": "single"
+    },
+    {
+      "defect": "missing_day",
+      "sheet": "Bestand",
+      "material_id": "78338108",
+      "plant": "1020",
+      "storage_location": "",
+      "date": "2026-09-22",
+      "detail": "single"
+    },
+    {
+      "defect": "missing_day",
+      "sheet": "Bestand",
+      "material_id": "18653170",
+      "plant": "1010",
+      "storage_location": "",
+      "date": "2026-09-23",
+      "detail": "single"
+    },
+    {
+      "defect": "missing_day",
+      "sheet": "Bestand",
+      "material_id": "37800630",
+      "plant": "1010",
+      "storage_location": "",
+      "date": "2026-09-23",
+      "detail": "single"
+    },
+    {
+      "defect": "missing_day",
+      "sheet": "Bestand",
+      "material_id": "00658008",
+      "plant": "1010",
+      "storage_location": "",
+      "date": "2026-09-24",
+      "detail": "single"
+    },
+    {
+      "defect": "missing_day",
+      "sheet": "Bestand",
+      "material_id": "52337732",
+      "plant": "1020",
+      "storage_location": "",
+      "date": "2026-09-24",
+      "detail": "single"
+    },
+    {
+      "defect": "missing_day",
+      "sheet": "Bestand",
+      "material_id": "00549974",
+      "plant": "1020",
+      "storage_location": "",
+      "date": "2026-09-25",
+      "detail": "single"
+    },
+    {
+      "defect": "missing_day",
+      "sheet": "Bestand",
+      "material_id": "16794542",
+      "plant": "1020",
+      "storage_location": "",
+      "date": "2026-09-25",
+      "detail": "single"
+    },
+    {
+      "defect": "missing_day",
+      "sheet": "Bestand",
+      "material_id": "30194929",
+      "plant": "1010",
+      "storage_location": "",
+      "date": "2026-09-26",
+      "detail": "single"
+    },
+    {
+      "defect": "missing_day",
+      "sheet": "Bestand",
+      "material_id": "30194929",
+      "plant": "1020",
+      "storage_location": "",
+      "date": "2026-09-28",
+      "detail": "single"
+    },
+    {
+      "defect": "missing_day",
+      "sheet": "Bestand",
+      "material_id": "72323591",
+      "plant": "1010",
+      "storage_location": "",
+      "date": "2026-09-28",
+      "detail": "single"
+    },
+    {
+      "defect": "missing_day",
+      "sheet": "Bestand",
+      "material_id": "60240484",
+      "plant": "1010",
+      "storage_location": "",
+      "date": "2026-09-29",
+      "detail": "single"
+    },
+    {
+      "defect": "missing_day",
+      "sheet": "Bestand",
+      "material_id": "00448980",
+      "plant": "1010",
+      "storage_location": "",
+      "date": "2026-09-30",
+      "detail": "single"
+    },
+    {
+      "defect": "missing_day",
+      "sheet": "Bestand",
+      "material_id": "00859991",
+      "plant": "1020",
+      "storage_location": "",
+      "date": "2026-10-02",
+      "detail": "single"
+    },
+    {
+      "defect": "missing_day",
+      "sheet": "Bestand",
+      "material_id": "16794542",
+      "plant": "1020",
+      "storage_location": "",
+      "date": "2026-10-02",
+      "detail": "single"
+    },
+    {
+      "defect": "missing_day",
+      "sheet": "Bestand",
+      "material_id": "66049020",
+      "plant": "1020",
+      "storage_location": "",
+      "date": "2026-10-02",
+      "detail": "single"
+    },
+    {
+      "defect": "missing_day",
+      "sheet": "Bestand",
+      "material_id": "00377087",
+      "plant": "1020",
+      "storage_location": "",
+      "date": "2026-10-05",
+      "detail": "single"
+    },
+    {
+      "defect": "missing_day",
+      "sheet": "Bestand",
+      "material_id": "00438674",
+      "plant": "1020",
+      "storage_location": "",
+      "date": "2026-10-05",
+      "detail": "single"
+    },
+    {
+      "defect": "missing_day",
+      "sheet": "Bestand",
+      "material_id": "21563012",
+      "plant": "1020",
+      "storage_location": "",
+      "date": "2026-10-05",
+      "detail": "single"
+    },
+    {
+      "defect": "missing_day",
+      "sheet": "Bestand",
+      "material_id": "00549974",
+      "plant": "1020",
+      "storage_location": "",
+      "date": "2026-10-07",
+      "detail": "single"
+    },
+    {
+      "defect": "missing_day",
+      "sheet": "Bestand",
+      "material_id": "00700379",
+      "plant": "1020",
+      "storage_location": "",
+      "date": "2026-10-08",
+      "detail": "single"
+    },
+    {
+      "defect": "missing_day",
+      "sheet": "Bestand",
+      "material_id": "42631186",
+      "plant": "1010",
+      "storage_location": "",
+      "date": "2026-10-11",
+      "detail": "single"
+    },
+    {
+      "defect": "missing_day",
+      "sheet": "Bestand",
+      "material_id": "42970906",
+      "plant": "1020",
+      "storage_location": "",
+      "date": "2026-10-11",
+      "detail": "single"
+    },
+    {
+      "defect": "missing_day",
+      "sheet": "Bestand",
+      "material_id": "84108355",
+      "plant": "1010",
+      "storage_location": "",
+      "date": "2026-10-11",
+      "detail": "single"
+    },
+    {
+      "defect": "missing_day",
+      "sheet": "Bestand",
+      "material_id": "00103233",
+      "plant": "1020",
+      "storage_location": "",
+      "date": "2026-10-13",
+      "detail": "single"
+    },
+    {
+      "defect": "missing_day",
+      "sheet": "Bestand",
+      "material_id": "46565671",
+      "plant": "1020",
+      "storage_location": "",
+      "date": "2026-10-13",
+      "detail": "single"
+    },
+    {
+      "defect": "missing_day",
+      "sheet": "Bestand",
+      "material_id": "00448980",
+      "plant": "1010",
+      "storage_location": "",
+      "date": "2026-10-15",
+      "detail": "single"
+    },
+    {
+      "defect": "missing_day",
+      "sheet": "Bestand",
+      "material_id": "00975848",
+      "plant": "1020",
+      "storage_location": "",
+      "date": "2026-10-15",
+      "detail": "single"
+    },
+    {
+      "defect": "missing_day",
+      "sheet": "Bestand",
+      "material_id": "52337732",
+      "plant": "1010",
+      "storage_location": "",
+      "date": "2026-10-15",
+      "detail": "single"
+    },
+    {
+      "defect": "missing_day",
+      "sheet": "Bestand",
+      "material_id": "93687235",
+      "plant": "1020",
+      "storage_location": "",
+      "date": "2026-10-15",
+      "detail": "single"
+    },
+    {
+      "defect": "missing_day",
+      "sheet": "Bestand",
+      "material_id": "00438674",
+      "plant": "1010",
+      "storage_location": "",
+      "date": "2026-10-16",
+      "detail": "single"
+    },
+    {
+      "defect": "missing_day",
+      "sheet": "Bestand",
+      "material_id": "00549974",
+      "plant": "1020",
+      "storage_location": "",
+      "date": "2026-10-16",
+      "detail": "single"
+    },
+    {
+      "defect": "missing_day",
+      "sheet": "Bestand",
+      "material_id": "00720291",
+      "plant": "1010",
+      "storage_location": "",
+      "date": "2026-10-17",
+      "detail": "single"
+    },
+    {
+      "defect": "missing_day",
+      "sheet": "Bestand",
+      "material_id": "84108355",
+      "plant": "1010",
+      "storage_location": "",
+      "date": "2026-10-18",
+      "detail": "single"
+    },
+    {
+      "defect": "missing_day",
+      "sheet": "Bestand",
+      "material_id": "00098355",
+      "plant": "1010",
+      "storage_location": "",
+      "date": "2026-10-20",
+      "detail": "single"
+    },
+    {
+      "defect": "missing_day",
+      "sheet": "Bestand",
+      "material_id": "00859991",
+      "plant": "1010",
+      "storage_location": "",
+      "date": "2026-10-21",
+      "detail": "single"
+    },
+    {
+      "defect": "missing_day",
+      "sheet": "Bestand",
+      "material_id": "42631186",
+      "plant": "1010",
+      "storage_location": "",
+      "date": "2026-10-21",
+      "detail": "single"
+    },
+    {
+      "defect": "missing_day",
+      "sheet": "Bestand",
+      "material_id": "21563012",
+      "plant": "1020",
+      "storage_location": "",
+      "date": "2026-10-22",
+      "detail": "single"
+    },
+    {
+      "defect": "missing_day",
+      "sheet": "Bestand",
+      "material_id": "21563012",
+      "plant": "1020",
+      "storage_location": "",
+      "date": "2026-10-27",
+      "detail": "gap"
+    },
+    {
+      "defect": "missing_day",
+      "sheet": "Bestand",
+      "material_id": "00549974",
+      "plant": "1010",
+      "storage_location": "",
+      "date": "2026-10-28",
+      "detail": "single"
+    },
+    {
+      "defect": "missing_day",
+      "sheet": "Bestand",
+      "material_id": "00658008",
+      "plant": "1010",
+      "storage_location": "",
+      "date": "2026-10-28",
+      "detail": "single"
+    },
+    {
+      "defect": "missing_day",
+      "sheet": "Bestand",
+      "material_id": "21563012",
+      "plant": "1020",
+      "storage_location": "",
+      "date": "2026-10-28",
+      "detail": "gap"
+    },
+    {
+      "defect": "missing_day",
+      "sheet": "Bestand",
+      "material_id": "60240484",
+      "plant": "1020",
+      "storage_location": "",
+      "date": "2026-10-30",
+      "detail": "single"
+    },
+    {
+      "defect": "negative_stock",
+      "sheet": "Bestand",
+      "material_id": "00738382",
+      "plant": "1010",
+      "storage_location": "0001",
+      "date": "2026-03-28",
+      "detail": "-5"
+    },
+    {
+      "defect": "negative_stock",
+      "sheet": "Bestand",
+      "material_id": "46565671",
+      "plant": "1020",
+      "storage_location": "0001",
+      "date": "2026-04-05",
+      "detail": "-1"
+    },
+    {
+      "defect": "negative_stock",
+      "sheet": "Bestand",
+      "material_id": "00647423",
+      "plant": "1010",
+      "storage_location": "0001",
+      "date": "2026-08-04",
+      "detail": "-3"
+    },
+    {
+      "defect": "negative_stock",
+      "sheet": "Bestand",
+      "material_id": "70791337",
+      "plant": "1020",
+      "storage_location": "0001",
+      "date": "2026-09-30",
+      "detail": "-4"
+    },
+    {
+      "defect": "negative_stock",
+      "sheet": "Bestand",
+      "material_id": "00098355",
+      "plant": "1010",
+      "storage_location": "0001",
+      "date": "2026-10-04",
+      "detail": "-1"
+    },
+    {
+      "defect": "negative_stock",
+      "sheet": "Bestand",
+      "material_id": "76283811",
+      "plant": "1010",
+      "storage_location": "0001",
+      "date": "2026-10-29",
+      "detail": "-2"
+    },
+    {
+      "defect": "partial_snapshot",
+      "sheet": "Bestand",
+      "material_id": "00377087",
+      "plant": "1010",
+      "storage_location": "",
+      "date": "2025-11-17",
+      "detail": "0002 missing"
+    },
+    {
+      "defect": "partial_snapshot",
+      "sheet": "Bestand",
+      "material_id": "46565671",
+      "plant": "1020",
+      "storage_location": "",
+      "date": "2025-12-24",
+      "detail": "0002 missing"
+    },
+    {
+      "defect": "partial_snapshot",
+      "sheet": "Bestand",
+      "material_id": "18653170",
+      "plant": "1010",
+      "storage_location": "",
+      "date": "2026-01-13",
+      "detail": "0002 missing"
+    },
+    {
+      "defect": "partial_snapshot",
+      "sheet": "Bestand",
+      "material_id": "66049020",
+      "plant": "1010",
+      "storage_location": "",
+      "date": "2026-01-13",
+      "detail": "0002 missing"
+    },
+    {
+      "defect": "partial_snapshot",
+      "sheet": "Bestand",
+      "material_id": "80815503",
+      "plant": "1020",
+      "storage_location": "",
+      "date": "2026-01-26",
+      "detail": "0002 missing"
+    },
+    {
+      "defect": "partial_snapshot",
+      "sheet": "Bestand",
+      "material_id": "66049020",
+      "plant": "1020",
+      "storage_location": "",
+      "date": "2026-02-09",
+      "detail": "0002 missing"
+    },
+    {
+      "defect": "partial_snapshot",
+      "sheet": "Bestand",
+      "material_id": "21563012",
+      "plant": "1020",
+      "storage_location": "",
+      "date": "2026-02-18",
+      "detail": "0002 missing"
+    },
+    {
+      "defect": "partial_snapshot",
+      "sheet": "Bestand",
+      "material_id": "24301245",
+      "plant": "1010",
+      "storage_location": "",
+      "date": "2026-02-26",
+      "detail": "0002 missing"
+    },
+    {
+      "defect": "partial_snapshot",
+      "sheet": "Bestand",
+      "material_id": "00377087",
+      "plant": "1020",
+      "storage_location": "",
+      "date": "2026-06-08",
+      "detail": "0002 missing"
+    },
+    {
+      "defect": "partial_snapshot",
+      "sheet": "Bestand",
+      "material_id": "92104951",
+      "plant": "1020",
+      "storage_location": "",
+      "date": "2026-10-29",
+      "detail": "0002 missing"
+    },
+    {
+      "defect": "unknown_material",
+      "sheet": "Wareneingang",
+      "material_id": "99833219",
+      "plant": "1020",
+      "storage_location": "0001",
+      "date": "2025-12-22",
+      "detail": ""
+    },
+    {
+      "defect": "unknown_material",
+      "sheet": "Wareneingang",
+      "material_id": "99861884",
+      "plant": "1020",
+      "storage_location": "0001",
+      "date": "2026-06-17",
+      "detail": ""
+    },
+    {
+      "defect": "unknown_material",
+      "sheet": "Wareneingang",
+      "material_id": "99458957",
+      "plant": "1020",
+      "storage_location": "0001",
+      "date": "2026-07-09",
+      "detail": ""
+    },
+    {
+      "defect": "unknown_material",
+      "sheet": "Wareneingang",
+      "material_id": "99230127",
+      "plant": "1020",
+      "storage_location": "0001",
+      "date": "2026-08-11",
+      "detail": ""
+    },
+    {
+      "defect": "unrecorded_receipt",
+      "sheet": "Wareneingang",
+      "material_id": "72323591",
+      "plant": "1010",
+      "storage_location": "0001",
+      "date": "2025-12-15",
+      "detail": "4467.6"
+    },
+    {
+      "defect": "unrecorded_receipt",
+      "sheet": "Wareneingang",
+      "material_id": "51201703",
+      "plant": "1020",
+      "storage_location": "0001",
+      "date": "2026-04-06",
+      "detail": "686.3"
+    },
+    {
+      "defect": "unrecorded_receipt",
+      "sheet": "Wareneingang",
+      "material_id": "00408389",
+      "plant": "1020",
+      "storage_location": "0001",
+      "date": "2026-09-21",
+      "detail": "3616"
+    }
+  ]
+}
