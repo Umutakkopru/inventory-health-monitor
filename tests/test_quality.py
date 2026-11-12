@@ -2,7 +2,7 @@
 
 Each check gets a small hand-built data set: one material 00000001 in plant 1010 with five
 daily snapshots (10, 9, 8, 7, 6) from 01.01. to 05.01.2026 and one receipt on 03.01. The
-tests change one thing at a time. DQ08 needs derived consumption and is tested in Phase 3.
+tests change one thing at a time. DQ08 needs derived consumption; see test_transform.py.
 """
 
 import json
@@ -14,7 +14,13 @@ import pytest
 from inventory_monitor.config import SAMPLE_WORKBOOK, SCENARIO_MANIFEST
 from inventory_monitor.ingest import load_workbook
 from inventory_monitor.models import RawData
-from inventory_monitor.quality import ISSUE_COLUMNS, run_checks
+from inventory_monitor.quality import (
+    ISSUE_COLUMNS,
+    empty_issues,
+    make_issues,
+    quality_score,
+    run_checks,
+)
 
 MAT, PLANT = "00000001", "1010"
 DAYS = pd.date_range("2026-01-01", "2026-01-05")
@@ -272,3 +278,36 @@ def test_sample_findings_are_exactly_the_injected_rows(sample) -> None:
         manifest, "exact_duplicate", "conflicting_duplicate"
     )
     assert _issue_keys(issues, "DQ07") == _manifest_keys(manifest, "lost_leading_zeros")
+
+
+# --- Quality score -------------------------------------------------------------------------
+
+
+def _daily_flags() -> pd.DataFrame:
+    # Day 1 observed, day 2 missing (imputed), day 3 observed but imputed (closes the gap).
+    return pd.DataFrame(
+        {
+            "material_id": MAT,
+            "plant": PLANT,
+            "date": DAYS[:3],
+            "is_observed": [True, False, True],
+            "is_imputed": [False, True, True],
+        }
+    )
+
+
+def test_quality_score_counts_observed_not_imputed_days() -> None:
+    scores = quality_score(_daily_flags(), empty_issues())
+    # Only day 1 is good: 1 / 3
+    assert scores["good_days"].tolist() == [1]
+    assert scores["score"].tolist() == pytest.approx([1 / 3])
+
+
+def test_quality_score_excludes_days_with_issues() -> None:
+    issue = make_issues(
+        "DQ03", pd.DataFrame({"material_id": [MAT], "plant": [PLANT], "date": [DAYS[0]]})
+    )
+    undated = make_issues("DQ10", pd.DataFrame({"material_id": [MAT], "plant": [PLANT]}))
+    scores = quality_score(_daily_flags(), pd.concat([issue, undated]))
+    # Day 1 now has an issue; the undated DQ10 issue does not count: 0 / 3
+    assert scores["score"].tolist() == [0.0]

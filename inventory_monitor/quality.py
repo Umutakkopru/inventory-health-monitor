@@ -314,3 +314,39 @@ def _dq11_receipts_outside_range(
     outside = ~inside  # also true when the material-plant has no snapshot at all
     findings = receipts[outside].assign(detail=_numbers(receipts.loc[outside, "receipt_qty"]))
     return receipts[inside], make_issues("DQ11", findings)
+
+
+# --- Checks on the derived tables (after the SQL step) -------------------------------------
+
+
+def check_negative_outflow(daily: pd.DataFrame) -> pd.DataFrame:
+    """DQ08: stock rose without a booked receipt, so derived consumption is negative.
+
+    One issue per affected segment, dated on the observed day that closes it. The detail
+    is the raw derived consumption per day; statistics use the value clipped to zero.
+    `pipeline.py` appends these issues to the table from `run_checks`.
+    """
+    rows = daily[daily["is_negative_outflow"] & daily["is_observed"]]
+    return make_issues("DQ08", rows.assign(detail=_numbers(rows["consumption_raw"])))
+
+
+def quality_score(daily: pd.DataFrame, issues: pd.DataFrame) -> pd.DataFrame:
+    """Data-quality score per material-plant: the share of good days in its date range.
+
+    A day is good when it is observed, not imputed, and no issue is dated on it for that
+    material-plant. Issues without a date (DQ05, DQ10) concern data that is not in
+    `daily` at all and do not count here.
+    """
+    day_key = [*KEY, "date"]
+    flagged = issues.loc[issues["date"].notna(), day_key].drop_duplicates()
+    marked = daily[day_key + ["is_observed", "is_imputed"]].merge(
+        flagged.assign(has_issue=True), on=day_key, how="left"
+    )
+    good = marked["is_observed"] & ~marked["is_imputed"] & marked["has_issue"].isna()
+    scores = (
+        marked.assign(good=good)
+        .groupby(KEY)
+        .agg(days=("date", "size"), good_days=("good", "sum"))
+        .reset_index()
+    )
+    return scores.assign(score=scores["good_days"] / scores["days"])
