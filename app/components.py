@@ -63,6 +63,19 @@ def tags(labels: list[str]) -> None:
     st.html(f'<div class="loc-tags">{spans}</div>')
 
 
+def spec_sheet(title: str, rows: list[tuple[str, str]]) -> None:
+    """Label and value pairs under a black title strip, values right-aligned in one column."""
+    items = "".join(
+        f'<div class="spec-sheet__row"><dt>{html.escape(label)}</dt>'
+        f"<dd>{html.escape(value)}</dd></div>"
+        for label, value in rows
+    )
+    st.html(
+        f'<section class="spec-sheet"><div class="spec-sheet__title">{html.escape(title)}</div>'
+        f"<dl>{items}</dl></section>"
+    )
+
+
 def code_tag_style(_: object) -> str:
     """Cell style for material numbers: the yellow code tag of a rack label."""
     return f"background-color: {SHELL_YELLOW}; color: {SIGNAL_BLACK}"
@@ -77,14 +90,22 @@ def style_figure(
     faces, sizes and the translucent rules are set here.
     """
     fig.update_layout(
-        title={"text": title, "font": {"family": CHART_TITLE_FONT, "size": 16}},
+        title={"text": title},
         xaxis_title=x_title,
         yaxis_title=y_title,
         separators=plotly_separators(),
         height=height,
         margin=CHART_MARGIN,
-        font={"family": CHART_FONT, "size": 13},
         legend={"orientation": "h", "yanchor": "top", "y": -0.25, "title": {"text": ""}},
+    )
+    return apply_type(fig)
+
+
+def apply_type(fig: go.Figure) -> go.Figure:
+    """The world's faces, sizes and translucent rules, for figures built with subplots too."""
+    fig.update_layout(
+        title_font={"family": CHART_TITLE_FONT, "size": 16},
+        font={"family": CHART_FONT, "size": 13},
         hoverlabel={"namelength": -1, "font": {"family": CHART_FONT}},
     )
     fig.update_xaxes(gridcolor=CHART_GRID, zerolinecolor=CHART_GRID)

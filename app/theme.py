@@ -66,6 +66,9 @@ SERIES_COLORS: dict[str, str] = {
     "imputed": "#8E8A82",
 }
 
+# Projection band on the Material Detail chart: the projection colour, mostly transparent.
+BAND_FILL = "rgba(86, 180, 233, 0.2)"
+
 ABC_COLORS: dict[str, str] = {"A": "#0072B2", "B": "#56B4E9", "C": "#8E8A82"}
 
 # Data-quality severities: colour plus symbol plus translated label.

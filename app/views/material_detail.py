@@ -21,7 +21,7 @@ from app.i18n import (
     plotly_separators,
     t,
 )
-from app.theme import SERIES_COLORS
+from app.theme import BAND_FILL, SERIES_COLORS
 from inventory_monitor import pipeline
 from inventory_monitor.models import MaterialHistory
 
@@ -52,7 +52,7 @@ def render() -> None:
 
     material_id, plant = state.split_material_key(st.session_state[state.MATERIAL])
     history = pipeline.material_history(state.prepared(), analysis, material_id, plant)
-    chart_col, facts_col = st.columns([3, 1.15])
+    chart_col, facts_col = st.columns([2.5, 1.2])
     with chart_col:
         _chart(history)
     with facts_col:
@@ -157,6 +157,7 @@ def _chart(history: MaterialHistory) -> None:
     fig.update_yaxes(
         title_text=t("detail.chart.y_consumption", unit=unit), tickformat=",.0f", row=2, col=1
     )
+    components.apply_type(fig)
     components.show_figure(fig, key="detail_chart")
     st.caption(t("detail.chart.caption"))
 
@@ -180,7 +181,7 @@ def _projection(fig: go.Figure, projection: pd.DataFrame, unit: str) -> None:
         mode="lines",
         line={"width": 0},
         fill="tonexty",
-        fillcolor="rgba(86,180,233,0.2)",
+        fillcolor=BAND_FILL,
         name=t("detail.series.band"),
         hoverinfo="skip",
         row=1,
@@ -222,8 +223,7 @@ def _facts(m: pd.Series) -> None:
         ("detail.fact.last_consumption", fmt_date(m["last_consumption_date"])),
         ("detail.fact.dq_score", fmt_pct(m["dq_score"])),
     ]
-    st.markdown("\n".join(f"- **{t(key)}:** {value}" for key, value in facts))
-    st.markdown(f"**{t('detail.master.title')}**")
+    components.spec_sheet(t("detail.facts.title"), [(t(key), value) for key, value in facts])
     master = [
         ("col.description", m["description"]),
         ("detail.master.price", fmt_eur(m["unit_price_eur"])),
@@ -233,7 +233,7 @@ def _facts(m: pd.Series) -> None:
         ("detail.master.safety_calc", qty(m["safety_stock_calc"])),
         ("detail.master.deviation", fmt_pct(m["min_stock_deviation_pct"] / 100)),
     ]
-    st.markdown("\n".join(f"- **{t(key)}:** {value}" for key, value in master))
+    components.spec_sheet(t("detail.master.title"), [(t(key), value) for key, value in master])
     if m["demand_anomaly"] or m["receipt_anomaly"]:
         st.warning(t("detail.anomaly"), icon=":material/troubleshoot:")
 

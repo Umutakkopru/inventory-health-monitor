@@ -104,7 +104,10 @@ def _table(rows: pd.DataFrame) -> None:
         | {c: fmt_date for c in DATE_COLUMNS}
         | {"coverage_days": fmt_coverage, "value_at_risk": fmt_eur, "stock_value": fmt_eur}
     )
-    styled = view.style.format(formats, na_rep="–")
+    # Material numbers read as the yellow code tags used on every page.
+    styled = view.style.format(formats, na_rep="–").map(
+        components.code_tag_style, subset=["material_id"]
+    )
     config = {c: st.column_config.Column(t(f"col.{c}")) for c in columns}
     config |= {c: st.column_config.CheckboxColumn(t(f"col.{c}")) for c in FLAG_COLUMNS}
     config |= {"plant": st.column_config.Column(t("col.plant"), width=55)}
