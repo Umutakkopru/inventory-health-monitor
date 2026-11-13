@@ -45,6 +45,8 @@ def render() -> None:
         "horizon": fmt_number(th.projection_horizon_days),
     }
     st.title(t("method.title"))
-    for section in SECTIONS:
-        st.subheader(t(f"method.{section}.title"))
-        st.markdown(t(f"method.{section}.body", **values))
+    # The keyed container lets styles.css hold prose to a readable line length on this page.
+    with st.container(key="methodology"):
+        for section in SECTIONS:
+            st.subheader(t(f"method.{section}.title"))
+            st.markdown(t(f"method.{section}.body", **values))

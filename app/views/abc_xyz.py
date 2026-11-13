@@ -6,14 +6,11 @@ from plotly.subplots import make_subplots
 
 from app import components, state
 from app.i18n import fmt_eur, fmt_eur_compact, fmt_number, fmt_pct, t
-from app.theme import ABC_COLORS, NEUTRAL_LINE
+from app.theme import ABC_COLORS, MATRIX_SCALE, MATRIX_TEXT, NEUTRAL_LINE
 from inventory_monitor import pipeline
 from inventory_monitor.config import ABC_CLASSES, XYZ_CLASSES
 
 PLANT_CHOICE = "abc_xyz_plant"
-# Light one-hue scale with dark text, readable on the light and the dark theme.
-MATRIX_SCALE = [[0.0, "#F2F7FC"], [1.0, "#7FB3E0"]]
-MATRIX_TEXT = "#1A1A1A"
 SHARE_TICKS = [0, 0.2, 0.4, 0.6, 0.8, 1.0]
 
 
@@ -60,6 +57,8 @@ def _matrix(metrics) -> None:
             colorscale=MATRIX_SCALE,
             textfont={"color": MATRIX_TEXT},
             showscale=False,
+            xgap=4,  # gaps between cells read as the aisles between rack bays
+            ygap=4,
             hovertemplate=t("abc.matrix.hover") + "<extra></extra>",
             customdata=[[fmt_eur(values.loc[a, x]) for x in XYZ_CLASSES] for a in ABC_CLASSES],
         )
@@ -139,6 +138,6 @@ def _deviations(metrics) -> None:
         "safety_stock_calc": t("abc.dev.calc"),
         "deviation": t("abc.dev.deviation"),
     }
-    st.dataframe(
-        table[list(columns)].rename(columns=columns), hide_index=True, key="abc_deviation_table"
-    )
+    shown = table[list(columns)].rename(columns=columns)
+    styled = shown.style.map(components.code_tag_style, subset=[t("col.material_id")])
+    st.dataframe(styled, hide_index=True, key="abc_deviation_table")

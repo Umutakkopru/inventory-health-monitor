@@ -76,8 +76,14 @@ def spec_sheet(title: str, rows: list[tuple[str, str]]) -> None:
     )
 
 
-def code_tag_style(_: object) -> str:
-    """Cell style for material numbers: the yellow code tag of a rack label."""
+def code_tag_style(value: object) -> str:
+    """Cell style for material numbers: the yellow code tag of a rack label.
+
+    Cells without a material number (some data-quality issues concern a whole sheet) stay
+    plain, so an empty yellow tag never suggests a code that is not there.
+    """
+    if not isinstance(value, str) or not value:
+        return ""
     return f"background-color: {SHELL_YELLOW}; color: {SIGNAL_BLACK}"
 
 

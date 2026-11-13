@@ -96,7 +96,8 @@ def _issue_table(issues: pd.DataFrame) -> None:
             t("dq.table.action"): rows["action_taken"].map(lambda a: t(f"dq.action.{a}")),
         }
     )
-    st.dataframe(table, hide_index=True, height=380, key="dq_issue_table")
+    styled = table.style.map(components.code_tag_style, subset=[t("col.material_id")])
+    st.dataframe(styled, hide_index=True, height=380, key="dq_issue_table")
 
 
 def _scores(metrics: pd.DataFrame) -> None:
@@ -114,4 +115,5 @@ def _scores(metrics: pd.DataFrame) -> None:
             t("dq.score.score"): lowest["dq_score"].map(lambda v: fmt_pct(v, 1)),
         }
     )
-    st.dataframe(table, hide_index=True, key="dq_score_table")
+    styled = table.style.map(components.code_tag_style, subset=[t("col.material_id")])
+    st.dataframe(styled, hide_index=True, key="dq_score_table")

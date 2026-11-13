@@ -96,3 +96,8 @@ PATTERN_INK = "rgba(255, 255, 255, 0.6)"
 # Shell colours, for the few places styles.css cannot reach (cells styled through pandas).
 SHELL_YELLOW = "#F2C200"
 SIGNAL_BLACK = "#161616"
+
+# ABC/XYZ matrix: concrete from pale to dark grey, so a fuller bay reads darker. The text
+# stays signal black, which keeps at least 7:1 contrast on the darkest cell in both themes.
+MATRIX_SCALE: list[list[float | str]] = [[0.0, "#F4F2EC"], [1.0, "#A8A398"]]
+MATRIX_TEXT = SIGNAL_BLACK
