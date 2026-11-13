@@ -68,6 +68,7 @@ def _issue_table(issues: pd.DataFrame) -> None:
             format_func=_check_label,
             placeholder=t("alerts.filter.all"),
             key=state.DQ_CHECKS,
+            select_all=False,
         )
     with search_col:
         st.text_input(

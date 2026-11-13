@@ -38,7 +38,11 @@ def render() -> None:
 
 
 def _filtered(metrics: pd.DataFrame) -> pd.DataFrame:
-    """Apply the filters above the table; an empty multiselect means "all"."""
+    """Apply the filters above the table; an empty multiselect means "all".
+
+    Streamlit's own "Select all" entry is switched off in every multiselect of the app: it
+    would duplicate the empty selection, and its label cannot be translated.
+    """
     status_col, abc_col, xyz_col, search_col = st.columns([3, 1.2, 1.2, 2.6])
     with status_col:
         st.multiselect(
@@ -47,14 +51,23 @@ def _filtered(metrics: pd.DataFrame) -> pd.DataFrame:
             format_func=components.status_text,
             placeholder=t("alerts.filter.all"),
             key=state.ALERT_STATUS,
+            select_all=False,
         )
     with abc_col:
         st.multiselect(
-            t("col.abc"), ["A", "B", "C"], placeholder=t("alerts.filter.all"), key=state.ALERT_ABC
+            t("col.abc"),
+            ["A", "B", "C"],
+            placeholder=t("alerts.filter.all"),
+            key=state.ALERT_ABC,
+            select_all=False,
         )
     with xyz_col:
         st.multiselect(
-            t("col.xyz"), ["X", "Y", "Z"], placeholder=t("alerts.filter.all"), key=state.ALERT_XYZ
+            t("col.xyz"),
+            ["X", "Y", "Z"],
+            placeholder=t("alerts.filter.all"),
+            key=state.ALERT_XYZ,
+            select_all=False,
         )
     with search_col:
         st.text_input(

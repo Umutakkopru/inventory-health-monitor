@@ -28,6 +28,7 @@ def _sidebar() -> None:
             t("sidebar.plants"),
             options=sorted(data.clean.materials["plant"].unique()),
             key=state.PLANTS,
+            select_all=False,
         )
         st.date_input(
             t("sidebar.as_of"),
