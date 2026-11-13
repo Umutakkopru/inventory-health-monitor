@@ -1,15 +1,26 @@
 """Shared UI building blocks: status labels and badges, KPI cards, chart layout, guards."""
 
+import functools
+from pathlib import Path
+
 import plotly.graph_objects as go
 import streamlit as st
 
 from app import state
 from app.i18n import plotly_separators, status_label, t
-from app.theme import STATUS_BADGE_COLORS, STATUS_ICONS, STATUS_SYMBOLS
+from app.theme import (
+    CHART_FONT,
+    CHART_GRID,
+    CHART_TITLE_FONT,
+    STATUS_BADGE_COLORS,
+    STATUS_ICONS,
+    STATUS_SYMBOLS,
+)
 
 CHART_HEIGHT = 360
 NBSP = "&nbsp;"  # markdown entity; a raw U+00A0 is collapsed by the renderer
 CHART_MARGIN = {"l": 10, "r": 10, "t": 50, "b": 10}
+STYLESHEET = Path(__file__).with_name("styles.css")
 
 
 def status_text(code: str) -> str:
@@ -33,18 +44,35 @@ def kpi(label: str, value: str, *, help_text: str | None = None) -> None:
 def style_figure(
     fig: go.Figure, title: str, x_title: str, y_title: str, height: int = CHART_HEIGHT
 ) -> go.Figure:
-    """Title, axis titles with units, language-specific number separators."""
+    """Title, axis titles with units, language-specific separators and the world's type.
+
+    Text colours are left to Streamlit's chart theme so they follow light and dark; only the
+    faces, sizes and the translucent rules are set here.
+    """
     fig.update_layout(
-        title={"text": title},
+        title={"text": title, "font": {"family": CHART_TITLE_FONT, "size": 16}},
         xaxis_title=x_title,
         yaxis_title=y_title,
         separators=plotly_separators(),
         height=height,
         margin=CHART_MARGIN,
+        font={"family": CHART_FONT, "size": 13},
         legend={"orientation": "h", "yanchor": "top", "y": -0.25, "title": {"text": ""}},
-        hoverlabel={"namelength": -1},
+        hoverlabel={"namelength": -1, "font": {"family": CHART_FONT}},
     )
+    fig.update_xaxes(gridcolor=CHART_GRID, zerolinecolor=CHART_GRID)
+    fig.update_yaxes(gridcolor=CHART_GRID, zerolinecolor=CHART_GRID)
     return fig
+
+
+def inject_styles() -> None:
+    """Load the few rules Streamlit's theme config cannot express (app/styles.css)."""
+    st.html(f"<style>{_stylesheet()}</style>")
+
+
+@functools.cache
+def _stylesheet() -> str:
+    return STYLESHEET.read_text(encoding="utf-8")
 
 
 def show_figure(fig: go.Figure, key: str) -> None:

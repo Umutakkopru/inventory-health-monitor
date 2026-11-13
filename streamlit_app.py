@@ -8,7 +8,7 @@ import dataclasses
 
 import streamlit as st
 
-from app import state
+from app import components, state
 from app.i18n import date_format, t
 from app.views import abc_xyz, alerts, data_quality, material_detail, methodology, overview
 from inventory_monitor.config import Thresholds
@@ -60,6 +60,7 @@ def _sidebar() -> None:
 
 def main() -> None:
     st.set_page_config(page_title=t("app.title"), page_icon=":material/inventory:", layout="wide")
+    components.inject_styles()
     state.init()
     _sidebar()
     pages = [

@@ -1,18 +1,22 @@
-"""Status colours, icons and symbols: the one place every chart and badge takes them from.
+"""Colours, icons, symbols and patterns: the one place every chart and badge takes them from.
 
-Colours follow the Okabe-Ito palette, which stays distinguishable with red-green colour
-blindness and reads on light and dark backgrounds. Status is never shown by colour alone:
-badges add a Material icon, tables and charts a text symbol, and both the translated label.
+The visual world is warehouse floor marking: a concrete ground, signal black and safety
+yellow. Safety yellow belongs to the shell (marking rule, active page, material-code tags)
+and never stands for a status. Status colours follow the Okabe-Ito palette, which stays
+distinguishable with red-green colour blindness and reads on light and dark grounds; the
+warning amber is a deeper ochre so it never reads as the shell yellow. Status is never shown
+by colour alone: badges add a Material icon, tables and charts a text symbol, critical and
+warning bars a fill pattern, and everything the translated label.
 """
 
 from inventory_monitor.models import Status
 
 STATUS_COLORS: dict[str, str] = {
     Status.SHORTAGE_CRITICAL: "#D55E00",  # vermillion
-    Status.SHORTAGE_WARNING: "#E69F00",  # orange
+    Status.SHORTAGE_WARNING: "#C98500",  # ochre, kept apart from the shell yellow
     Status.DEAD_STOCK: "#CC79A7",  # reddish purple
     Status.OVERSTOCK: "#0072B2",  # blue
-    Status.INACTIVE: "#8C8C8C",  # grey
+    Status.INACTIVE: "#8E8A82",  # concrete grey
     Status.INSUFFICIENT_DATA: "#56B4E9",  # sky blue
     Status.OK: "#009E73",  # bluish green
 }
@@ -54,18 +58,31 @@ STATUS_BADGE_COLORS: dict[str, str] = {
 SERIES_COLORS: dict[str, str] = {
     "stock": "#0072B2",
     "safety_stock": "#D55E00",
-    "reorder_point": "#E69F00",
+    "reorder_point": "#C98500",
     "max_target": "#CC79A7",
     "receipts": "#009E73",
-    "consumption": "#8C8C8C",
+    "consumption": "#8E8A82",
     "projection": "#56B4E9",
-    "imputed": "#8C8C8C",
+    "imputed": "#8E8A82",
 }
 
-ABC_COLORS: dict[str, str] = {"A": "#0072B2", "B": "#56B4E9", "C": "#8C8C8C"}
+ABC_COLORS: dict[str, str] = {"A": "#0072B2", "B": "#56B4E9", "C": "#8E8A82"}
 
 # Data-quality severities: colour plus symbol plus translated label.
-SEVERITY_COLORS: dict[str, str] = {"error": "#D55E00", "warning": "#E69F00", "info": "#56B4E9"}
+SEVERITY_COLORS: dict[str, str] = {"error": "#D55E00", "warning": "#C98500", "info": "#56B4E9"}
 SEVERITY_SYMBOLS: dict[str, str] = {"error": "‼", "warning": "!", "info": "i"}
 
-NEUTRAL_LINE = "#8C8C8C"
+NEUTRAL_LINE = "#8E8A82"
+
+# Plotly bar fill patterns: the form cue that carries status without colour. Critical bays
+# are hatched like floor marking, warnings dotted; every other status stays solid.
+STATUS_PATTERNS: dict[str, str] = {
+    Status.SHORTAGE_CRITICAL: "/",
+    Status.SHORTAGE_WARNING: ".",
+}
+
+# Chart typography and rules. Grid and axis lines are translucent so they read on both the
+# concrete (light) and asphalt (dark) ground without knowing which theme is active.
+CHART_FONT = "Barlow, sans-serif"
+CHART_TITLE_FONT = "Barlow Condensed, Barlow, sans-serif"
+CHART_GRID = "rgba(142, 138, 130, 0.35)"

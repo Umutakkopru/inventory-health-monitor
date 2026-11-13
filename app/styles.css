@@ -1,0 +1,62 @@
+/*
+ * Rules Streamlit's theme config cannot express. Kept small and scoped to stable
+ * data-testid hooks. Colours that differ between light and dark use light-dark(), which
+ * follows the color-scheme Streamlit sets on the app for the active theme.
+ * Palette: safety yellow #F2C200 (shell only), signal black #161616, concrete and asphalt
+ * grounds from .streamlit/config.toml. No text is generated here (all copy lives in i18n).
+ */
+
+/* Marking rule: a solid safety-yellow strip along the top edge of the work area. */
+[data-testid="stMain"] {
+  border-top: 6px solid #F2C200;
+}
+
+/* Page title set like a rack sign: condensed capitals, tight but legible tracking. */
+[data-testid="stMain"] h1 {
+  text-transform: uppercase;
+  letter-spacing: 0.01em;
+  line-height: 1.1;
+}
+
+[data-testid="stMain"] h2,
+[data-testid="stMain"] h3 {
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+
+/* Active page in the sidebar: lifted bay with yellow lettering, no coloured side bar. */
+[data-testid="stSidebarNavLink"][aria-current="page"] {
+  background: #2C2B28;
+}
+
+[data-testid="stSidebarNavLink"][aria-current="page"] span {
+  color: #F2C200 !important;
+  font-weight: 600;
+}
+
+/* Browser surfaces the theme does not reach. */
+[data-testid="stApp"] ::selection {
+  background: #F2C200;
+  color: #161616;
+}
+
+[data-testid="stApp"] {
+  scrollbar-color: light-dark(#A8A398, #4A4842) transparent;
+  scrollbar-width: thin;
+}
+
+[data-testid="stApp"] a:focus-visible,
+[data-testid="stApp"] button:focus-visible {
+  outline: 2px solid #F2C200;
+  outline-offset: 2px;
+}
+
+[data-testid="stApp"] a {
+  text-underline-offset: 0.2em;
+}
+
+/* Figures in tables, captions and cards line up in columns. */
+[data-testid="stMain"] [data-testid="stMarkdownContainer"],
+[data-testid="stMain"] [data-testid="stCaptionContainer"] {
+  font-variant-numeric: tabular-nums;
+}

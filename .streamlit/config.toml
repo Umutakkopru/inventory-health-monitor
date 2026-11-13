@@ -1,11 +1,94 @@
-# Light and dark variants are defined separately, so the app follows the viewer's system
-# setting. A colour set directly under [theme] would create a single light-based custom
-# theme and switch dark mode off. Status colours live in app/theme.py and work on both.
+# Visual world: warehouse floor marking and rack labels. Concrete ground, signal-black
+# sidebar, safety yellow only for marking rules, the active page and material-code tags.
+# Light and dark are defined separately so the app follows the viewer's system setting.
+# Status colours live in app/theme.py; the few rules Streamlit cannot theme are in
+# app/styles.css.
+
+[server]
+# Serves static/ (the self-hosted Barlow font files) under app/static/.
+enableStaticServing = true
+
+[theme]
+font = "Barlow, sans-serif"
+headingFont = "Barlow Condensed, Barlow, sans-serif"
+headingFontWeights = [700, 700, 600, 600, 600, 600]
+headingFontSizes = ["2rem", "1.375rem", "1.125rem", "1rem", "0.875rem", "0.75rem"]
+baseRadius = "2px"
+buttonRadius = "2px"
+showWidgetBorder = true
+
+[[theme.fontFaces]]
+family = "Barlow"
+url = "app/static/fonts/Barlow-400.woff2"
+weight = "400"
+
+[[theme.fontFaces]]
+family = "Barlow"
+url = "app/static/fonts/Barlow-500.woff2"
+weight = "500"
+
+[[theme.fontFaces]]
+family = "Barlow"
+url = "app/static/fonts/Barlow-600.woff2"
+weight = "600"
+
+[[theme.fontFaces]]
+family = "Barlow Condensed"
+url = "app/static/fonts/BarlowCondensed-600.woff2"
+weight = "600"
+
+[[theme.fontFaces]]
+family = "Barlow Condensed"
+url = "app/static/fonts/BarlowCondensed-700.woff2"
+weight = "700"
+
+[[theme.fontFaces]]
+family = "Barlow Semi Condensed"
+url = "app/static/fonts/BarlowSemiCondensed-600.woff2"
+weight = "600"
+
+[[theme.fontFaces]]
+family = "Barlow Semi Condensed"
+url = "app/static/fonts/BarlowSemiCondensed-700.woff2"
+weight = "700"
+
 [theme.light]
-primaryColor = "#2563eb"
+backgroundColor = "#D9D6CE"
+secondaryBackgroundColor = "#FFFFFF"
+textColor = "#161616"
+primaryColor = "#161616"
+linkColor = "#1D5C8C"
+borderColor = "#A8A398"
+dataframeBorderColor = "#C9C5BB"
+dataframeHeaderBackgroundColor = "#EDEBE5"
+dataframeHeaderTextColor = "#161616"
+chartCategoricalColors = ["#0072B2", "#D55E00", "#009E73", "#C98500", "#CC79A7", "#56B4E9", "#161616", "#8E8A82", "#7A4E2D", "#1D5C8C"]
+
+[theme.light.sidebar]
+backgroundColor = "#161616"
+secondaryBackgroundColor = "#262624"
+textColor = "#ECE9E1"
+primaryColor = "#F2C200"
+borderColor = "#45433E"
 
 [theme.dark]
-primaryColor = "#60a5fa"
+backgroundColor = "#1C1C1A"
+secondaryBackgroundColor = "#2A2926"
+textColor = "#ECE9E1"
+primaryColor = "#F2C200"
+linkColor = "#7FB8E6"
+borderColor = "#4A4842"
+dataframeBorderColor = "#3A3935"
+dataframeHeaderBackgroundColor = "#2F2E2A"
+dataframeHeaderTextColor = "#ECE9E1"
+chartCategoricalColors = ["#56B4E9", "#E8803A", "#2CC09A", "#E0A82E", "#D98CB8", "#9FD3F2", "#ECE9E1", "#9A968D", "#C08A5E", "#7FB8E6"]
+
+[theme.dark.sidebar]
+backgroundColor = "#111110"
+secondaryBackgroundColor = "#232220"
+textColor = "#ECE9E1"
+primaryColor = "#F2C200"
+borderColor = "#3A3935"
 
 [client]
 toolbarMode = "minimal"
