@@ -91,3 +91,16 @@ class AnalysisResult:
     issues: pd.DataFrame
     as_of: pd.Timestamp
     thresholds: Thresholds
+
+
+@dataclass(frozen=True, eq=False)
+class MaterialHistory:
+    """Everything the Material Detail page shows for one material-plant, up to `as_of`.
+
+    `metrics` is the material's row of the analysis; `projection` starts on `as_of`.
+    """
+
+    metrics: pd.Series
+    daily: pd.DataFrame
+    by_sloc: pd.DataFrame
+    projection: pd.DataFrame

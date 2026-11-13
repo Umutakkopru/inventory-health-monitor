@@ -77,6 +77,8 @@ MIN_COMPLETE_WEEKS: Final[int] = 4  # fewer complete weeks: sigma_weekly is not 
 ANNUAL_WINDOW_DAYS: Final[int] = 365  # window of the annual consumption value (ABC)
 RECEIPT_ANOMALY_WINDOW_DAYS: Final[int] = 30  # receipts this recent are checked for anomalies
 MIN_RECEIPT_HISTORY: Final[int] = 5  # earlier receipts needed before a receipt can be unusual
+# Master-data safety stock deviating this much from the calculated value is listed for review.
+MASTER_DEVIATION_ALERT: Final[float] = 0.5
 
 
 # --- Thresholds ------------------------------------------------------------------------------

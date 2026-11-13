@@ -21,7 +21,7 @@ from inventory_monitor.config import (
     RECEIPT_ANOMALY_WINDOW_DAYS,
     Thresholds,
 )
-from inventory_monitor.models import Status
+from inventory_monitor.models import URGENCY_ORDER, Status
 
 KEY = ["material_id", "plant"]
 SHORTAGES = (Status.SHORTAGE_CRITICAL, Status.SHORTAGE_WARNING)
@@ -140,3 +140,12 @@ def _receipt_anomaly(
     largest = known[recent].groupby(KEY)["receipt_qty"].max()
     flag = largest > fence.reindex(largest.index)
     return flag.rename("receipt_anomaly").reset_index()
+
+
+def sort_by_urgency(frame: pd.DataFrame) -> pd.DataFrame:
+    """Rows ordered by status urgency (URGENCY_ORDER), then by priority score, descending."""
+    rank = frame["status"].map({s.value: i for i, s in enumerate(URGENCY_ORDER)})
+    order = frame.assign(_rank=rank).sort_values(
+        ["_rank", "priority_score"], ascending=[True, False], kind="stable"
+    )
+    return order.drop(columns="_rank")

@@ -1,7 +1,11 @@
-# The base theme is left unset so the app follows the viewer's light or dark preference.
-# Status colours live in app/theme.py and are chosen to work in both.
-[theme]
+# Light and dark variants are defined separately, so the app follows the viewer's system
+# setting. A colour set directly under [theme] would create a single light-based custom
+# theme and switch dark mode off. Status colours live in app/theme.py and work on both.
+[theme.light]
 primaryColor = "#2563eb"
+
+[theme.dark]
+primaryColor = "#60a5fa"
 
 [client]
 toolbarMode = "minimal"

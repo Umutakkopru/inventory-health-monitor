@@ -12,7 +12,8 @@ import numpy as np
 import pandas as pd
 
 from inventory_monitor.config import Thresholds
-from inventory_monitor.models import URGENCY_ORDER, AnalysisResult, Status
+from inventory_monitor.detect import sort_by_urgency
+from inventory_monitor.models import AnalysisResult, Status
 
 LANGUAGES = ("de", "en")
 
@@ -183,10 +184,7 @@ def build_alert_workbook(
 def alert_table(rows: pd.DataFrame, lang: str) -> pd.DataFrame:
     """The alert columns with translated headers, status and flags, most urgent first."""
     labels, text = COLUMN_LABELS[lang], EXPORT_TEXT[lang]
-    urgency = rows["status"].map({s.value: i for i, s in enumerate(URGENCY_ORDER)})
-    ordered = rows.assign(_urgency=urgency).sort_values(
-        ["_urgency", "priority_score"], ascending=[True, False], kind="stable"
-    )
+    ordered = sort_by_urgency(rows)
     table = ordered[list(labels)].assign(
         status=ordered["status"].map(STATUS_LABELS[lang]),
         coverage_days=ordered["coverage_days"]

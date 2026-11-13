@@ -65,7 +65,7 @@ def project(
     """Projected stock per day for one material, from its last date over the horizon.
 
     `daily_one_material` must already be limited to dates up to `as_of`; its last date is
-    day 0. The projection and its band never go below zero.
+    day 0. The projection and its band stay between zero and today's stock.
     """
     start = daily_one_material["date"].max()
     days = np.arange(thresholds.projection_horizon_days + 1)
@@ -79,6 +79,7 @@ def project(
             "date": start + pd.to_timedelta(days, unit="D"),
             "projected_stock": projected,
             "lower": np.clip(projected - spread, 0, None),
-            "upper": projected + spread,
+            # Without receipts the stock can only fall, so the band never exceeds today's stock.
+            "upper": np.minimum(projected + spread, metrics_row["stock"]),
         }
     )

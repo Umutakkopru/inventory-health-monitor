@@ -104,3 +104,14 @@ def test_project_without_rate_or_sigma_is_flat() -> None:
     out = project(daily, row, DEFAULT_THRESHOLDS)
     assert set(out["projected_stock"]) == {100.0}
     assert (out["upper"] == out["lower"]).all()
+
+
+def test_band_never_exceeds_todays_stock() -> None:
+    # Stock 0: the projection stays at 0 and so does the whole band.
+    daily = pd.DataFrame({"date": [AS_OF]})
+    row = pd.Series({"stock": 0.0, "projection_daily_demand": 10.0, "sigma_weekly": 14.0})
+    out = project(daily, row, DEFAULT_THRESHOLDS)
+    assert out["upper"].max() == 0.0
+    # Stock 100: on day 0 the band is exactly today's stock (100 + 14 * 0 = 100).
+    row = pd.Series({"stock": 100.0, "projection_daily_demand": 1.0, "sigma_weekly": 14.0})
+    assert project(daily, row, DEFAULT_THRESHOLDS)["upper"].max() == 100.0
