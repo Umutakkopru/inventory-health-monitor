@@ -7,7 +7,8 @@ and shows them in a bilingual (German/English) Streamlit dashboard.
 ![Python 3.12](https://img.shields.io/badge/python-3.12-blue)
 [![License: MIT](https://img.shields.io/badge/license-MIT-green)](LICENSE)
 
-**Live demo:** the link follows once the app is deployed on Streamlit Community Cloud.
+**Live demo:** <https://inventory-health-monitor.streamlit.app/>
+(Streamlit Community Cloud; the first load after a quiet period can take a moment while the app wakes up.)
 
 ![Overview page](docs/screenshots/overview.png)
 
