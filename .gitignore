@@ -25,3 +25,9 @@ private/
 # Generated at runtime (the sample workbook data/sample_inventory.xlsx IS committed)
 data/*.tmp.xlsx
 exports/
+
+# Local design tooling (Impeccable): product notes, design system record, editor hooks
+PRODUCT.md
+DESIGN.md
+.impeccable/
+.github/hooks/
