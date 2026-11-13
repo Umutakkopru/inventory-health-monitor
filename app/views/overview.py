@@ -18,12 +18,13 @@ from app.i18n import (
     plotly_date_format,
     t,
 )
-from app.theme import STATUS_COLORS
+from app.theme import PATTERN_INK, STATUS_COLORS, STATUS_PATTERNS
 from inventory_monitor import pipeline
+from inventory_monitor.models import Status
 
 TOP_N = 10
 KPI_WIDTHS = [1, 1, 1, 1, 1.5, 1.5]
-NARROW_COLUMNS = {"col.plant": 55, "col.abc": 45}  # pixels
+NARROW_COLUMNS = {"col.material_id": 80, "col.plant": 55, "col.abc": 45}  # pixels
 
 
 def render() -> None:
@@ -33,8 +34,9 @@ def render() -> None:
     st.caption(t("overview.subtitle", date=fmt_date(analysis.as_of)))
     if not components.require_plants():
         return
+    components.tags([t("overview.plant_tag", plant=p) for p in state.selected_plants()])
     metrics = state.plant_metrics(analysis)
-    _kpi_row(metrics)
+    _kpi_row(metrics, analysis.thresholds.dead_stock_days)
     left, right = st.columns(2)
     with left:
         _status_chart(metrics)
@@ -43,20 +45,40 @@ def render() -> None:
     _most_urgent(metrics)
 
 
-def _kpi_row(metrics: pd.DataFrame) -> None:
+def _kpi_row(metrics: pd.DataFrame, dead_stock_days: int) -> None:
     figures = pipeline.kpis(metrics)
+    # (key, figure, proof arguments, status whose symbol and form the card carries)
     cards = [
-        ("overview.kpi.critical", fmt_number(figures["critical"])),
-        ("overview.kpi.warning", fmt_number(figures["warning"])),
-        ("overview.kpi.overstock", fmt_number(figures["overstock"])),
-        ("overview.kpi.dead_stock", fmt_number(figures["dead_stock"])),
-        ("overview.kpi.stock_value", fmt_eur_compact(figures["stock_value"])),
-        ("overview.kpi.excess_value", fmt_eur_compact(figures["excess_value"])),
+        ("critical", fmt_number(figures["critical"]), {}, Status.SHORTAGE_CRITICAL),
+        ("warning", fmt_number(figures["warning"]), {}, Status.SHORTAGE_WARNING),
+        ("overstock", fmt_number(figures["overstock"]), {}, Status.OVERSTOCK),
+        (
+            "dead_stock",
+            fmt_number(figures["dead_stock"]),
+            {"days": dead_stock_days},
+            Status.DEAD_STOCK,
+        ),
+        (
+            "stock_value",
+            fmt_eur_compact(figures["stock_value"]),
+            {"count": fmt_number(len(metrics))},
+            None,
+        ),
+        ("excess_value", fmt_eur_compact(figures["excess_value"]), {}, None),
     ]
     # The two amount cards get more room than the four counts.
-    for column, (key, value) in zip(st.columns(KPI_WIDTHS), cards, strict=True):
+    for column, (name, value, proof_args, status) in zip(
+        st.columns(KPI_WIDTHS), cards, strict=True
+    ):
+        key = f"overview.kpi.{name}"
         with column:
-            components.kpi(t(key), value, help_text=t(f"{key}_help"))
+            components.kpi(
+                t(key),
+                value,
+                t(f"{key}_proof", **proof_args),
+                help_text=t(f"{key}_help"),
+                status=status,
+            )
 
 
 def _status_chart(metrics: pd.DataFrame) -> None:
@@ -67,7 +89,16 @@ def _status_chart(metrics: pd.DataFrame) -> None:
             x=counts.to_numpy(),
             y=labels,
             orientation="h",
-            marker_color=[STATUS_COLORS[code] for code in counts.index],
+            marker={
+                "color": [STATUS_COLORS[code] for code in counts.index],
+                # Form as well as colour: critical hatched, warning dotted (theme.py).
+                "pattern": {
+                    "shape": [STATUS_PATTERNS.get(code, "") for code in counts.index],
+                    "fgcolor": PATTERN_INK,
+                    "fillmode": "overlay",
+                    "size": 7,
+                },
+            },
             text=counts.to_numpy(),
             textposition="outside",
             cliponaxis=False,
@@ -121,7 +152,8 @@ def _most_urgent(metrics: pd.DataFrame) -> None:
     table = pd.DataFrame(
         {
             t("col.status"): top["status"].map(components.status_text),
-            t("overview.top.material"): top["material_id"] + " · " + top["description"],
+            t("col.material_id"): top["material_id"],
+            t("col.description"): top["description"],
             # Value at risk drives the order, so it sits next to the material.
             t("col.value_at_risk"): top["value_at_risk"].map(fmt_eur),
             t("col.plant"): top["plant"],
@@ -134,4 +166,6 @@ def _most_urgent(metrics: pd.DataFrame) -> None:
         }
     )
     narrow = {t(c): st.column_config.TextColumn(width=w) for c, w in NARROW_COLUMNS.items()}
-    st.dataframe(table, hide_index=True, column_config=narrow, key="overview_top_table")
+    # Material numbers lead each row as yellow code tags, like the labels on a rack.
+    styled = table.style.map(components.code_tag_style, subset=[t("col.material_id")])
+    st.dataframe(styled, hide_index=True, column_config=narrow, key="overview_top_table")

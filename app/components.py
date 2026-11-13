@@ -1,6 +1,7 @@
 """Shared UI building blocks: status labels and badges, KPI cards, chart layout, guards."""
 
 import functools
+import html
 from pathlib import Path
 
 import plotly.graph_objects as go
@@ -12,13 +13,14 @@ from app.theme import (
     CHART_FONT,
     CHART_GRID,
     CHART_TITLE_FONT,
+    SHELL_YELLOW,
+    SIGNAL_BLACK,
     STATUS_BADGE_COLORS,
     STATUS_ICONS,
     STATUS_SYMBOLS,
 )
 
 CHART_HEIGHT = 360
-NBSP = "&nbsp;"  # markdown entity; a raw U+00A0 is collapsed by the renderer
 CHART_MARGIN = {"l": 10, "r": 10, "t": 50, "b": 10}
 STYLESHEET = Path(__file__).with_name("styles.css")
 
@@ -33,12 +35,37 @@ def status_badge(code: str) -> None:
     st.badge(status_label(code), icon=STATUS_ICONS[code], color=STATUS_BADGE_COLORS[code])
 
 
-def kpi(label: str, value: str, *, help_text: str | None = None) -> None:
-    """A bordered card whose label wraps instead of being cut off (st.metric truncates)."""
-    with st.container(border=True):
-        st.caption(label, help=help_text)
-        # Non-breaking spaces keep "8,2 Mio. €" on one line in a narrow card.
-        st.markdown(f"#### {value.replace(' ', NBSP)}")
+def kpi(
+    label: str, value: str, proof: str, *, help_text: str = "", status: str | None = None
+) -> None:
+    """A rack label: black title strip, one large figure and the reason it means what it says.
+
+    `status` adds that status's symbol to the strip and its form to the card (critical
+    hatched, warning dashed; see styles.css), so the card never depends on colour alone.
+    The full explanation stays available as the native tooltip.
+    """
+    modifier = f" rack-label--{status.lower()}" if status else ""
+    symbol = html.escape(STATUS_SYMBOLS[status]) if status else ""
+    st.html(
+        f'<div class="rack-label{modifier}" title="{html.escape(help_text)}">'
+        f'<div class="rack-label__title"><span>{html.escape(label)}</span>'
+        f'<span class="rack-label__symbol" aria-hidden="true">{symbol}</span></div>'
+        '<div class="rack-label__band"></div>'
+        f'<div class="rack-label__value">{html.escape(value)}</div>'
+        f'<div class="rack-label__proof">{html.escape(proof)}</div>'
+        "</div>"
+    )
+
+
+def tags(labels: list[str]) -> None:
+    """A row of location tags (plants) under a page title."""
+    spans = "".join(f'<span class="loc-tag">{html.escape(label)}</span>' for label in labels)
+    st.html(f'<div class="loc-tags">{spans}</div>')
+
+
+def code_tag_style(_: object) -> str:
+    """Cell style for material numbers: the yellow code tag of a rack label."""
+    return f"background-color: {SHELL_YELLOW}; color: {SIGNAL_BLACK}"
 
 
 def style_figure(

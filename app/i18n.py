@@ -288,6 +288,13 @@ _TEXT: dict[str, dict[str, str]] = {
         "overview.kpi.excess_value_help": (
             "Wert oberhalb des Maximalbestands plus der gesamte Bestandswert der Ladenhüter."
         ),
+        "overview.kpi.critical_proof": "Bestand < Sicherheits\u00adbestand",
+        "overview.kpi.warning_proof": "Bestellung offen?",
+        "overview.kpi.overstock_proof": "Bestand > Maximum",
+        "overview.kpi.dead_stock_proof": "≥ {days} Tage ohne Verbrauch",
+        "overview.kpi.stock_value_proof": "{count} Materialien",
+        "overview.kpi.excess_value_proof": "Überbestand + Ladenhüter",
+        "overview.plant_tag": "Werk {plant}",
         "overview.status_chart.title": "Materialien nach Status",
         "overview.status_chart.x": "Anzahl Materialien",
         "overview.status_chart.hover": "%{y}: %{x} Materialien",
@@ -296,7 +303,6 @@ _TEXT: dict[str, dict[str, str]] = {
         "overview.value_chart.y": "Bestandswert (EUR)",
         "overview.value_chart.hover": "%{{x|{date_format}}}: %{{y:,.0f}} €",
         "overview.top.title": "Die 10 dringendsten Materialien",
-        "overview.top.material": "Material",
         "overview.top.caption": (
             "Sortiert nach Status, dann nach Wert im Risiko; Engpässe der Klasse A zuerst."
         ),
@@ -557,6 +563,13 @@ _TEXT: dict[str, dict[str, str]] = {
         "overview.kpi.excess_value_help": (
             "Value above the maximum stock plus the whole stock value of dead stock."
         ),
+        "overview.kpi.critical_proof": "Stock < safety stock",
+        "overview.kpi.warning_proof": "Order open?",
+        "overview.kpi.overstock_proof": "Stock > maximum",
+        "overview.kpi.dead_stock_proof": "≥ {days} days without use",
+        "overview.kpi.stock_value_proof": "{count} materials",
+        "overview.kpi.excess_value_proof": "Overstock + dead stock",
+        "overview.plant_tag": "Plant {plant}",
         "overview.status_chart.title": "Materials by status",
         "overview.status_chart.x": "Number of materials",
         "overview.status_chart.hover": "%{y}: %{x} materials",
@@ -565,7 +578,6 @@ _TEXT: dict[str, dict[str, str]] = {
         "overview.value_chart.y": "Stock value (EUR)",
         "overview.value_chart.hover": "%{{x|{date_format}}}: €%{{y:,.0f}}",
         "overview.top.title": "The 10 most urgent materials",
-        "overview.top.material": "Material",
         "overview.top.caption": "Sorted by status, then by value at risk; class A shortages first.",
     },
 }
