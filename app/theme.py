@@ -5,8 +5,8 @@ yellow. Safety yellow belongs to the shell (marking rule, active page, material-
 and never stands for a status. Status colours follow the Okabe-Ito palette, which stays
 distinguishable with red-green colour blindness and reads on light and dark grounds; the
 warning amber is a deeper ochre so it never reads as the shell yellow. Status is never shown
-by colour alone: badges add a Material icon, tables and charts a text symbol, critical and
-warning bars a fill pattern, and everything the translated label.
+by colour alone: cards and spec sheets add a Material icon, tables and charts a text
+symbol, critical and warning bars a fill pattern, and everything the translated label.
 """
 
 from inventory_monitor.models import Status
@@ -21,7 +21,7 @@ STATUS_COLORS: dict[str, str] = {
     Status.OK: "#009E73",  # bluish green
 }
 
-# Material Symbols for st.badge, st.metric and markdown.
+# Material Symbols for the status icons on cards and spec sheets (components.status_icon).
 STATUS_ICONS: dict[str, str] = {
     Status.SHORTAGE_CRITICAL: ":material/error:",
     Status.SHORTAGE_WARNING: ":material/warning:",
@@ -41,17 +41,6 @@ STATUS_SYMBOLS: dict[str, str] = {
     Status.INACTIVE: "○",
     Status.INSUFFICIENT_DATA: "?",
     Status.OK: "✓",
-}
-
-# st.badge accepts a fixed set of colour names; the closest match per status.
-STATUS_BADGE_COLORS: dict[str, str] = {
-    Status.SHORTAGE_CRITICAL: "red",
-    Status.SHORTAGE_WARNING: "orange",
-    Status.DEAD_STOCK: "violet",
-    Status.OVERSTOCK: "blue",
-    Status.INACTIVE: "gray",
-    Status.INSUFFICIENT_DATA: "blue",
-    Status.OK: "green",
 }
 
 # Lines and bars of the Material Detail chart.

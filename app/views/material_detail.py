@@ -27,7 +27,13 @@ from inventory_monitor.models import MaterialHistory
 
 CHART_HEIGHT = 620
 ROW_HEIGHTS = [0.72, 0.28]
-LIMIT_LINES = ("safety_stock", "reorder_point", "max_target")
+# Each limit has its own dash as well as its own colour: safety stock and reorder point are
+# both warm tones and would merge under red-green colour blindness without it.
+LIMIT_LINES = {
+    "safety_stock": {"dash": "solid", "width": 2},
+    "reorder_point": {"dash": "dashdot", "width": 1.5},
+    "max_target": {"dash": "dot", "width": 1.5},
+}
 PIECES = "ST"  # counted in whole pieces, shown without decimals
 
 
@@ -118,14 +124,14 @@ def _chart(history: MaterialHistory) -> None:
     )
     _projection(fig, projection, unit)
     end = projection["date"].max()
-    for name in LIMIT_LINES:
+    for name, stroke in LIMIT_LINES.items():
         if pd.notna(m[name]):
             fig.add_scatter(
                 x=[daily["date"].min(), end],
                 y=[m[name], m[name]],
                 mode="lines",
                 name=t(f"col.{name}"),
-                line={"color": SERIES_COLORS[name], "dash": "dot", "width": 1.5},
+                line={"color": SERIES_COLORS[name], **stroke},
                 hovertemplate=_hover(t(f"col.{name}"), unit),
                 row=1,
                 col=1,
@@ -200,7 +206,6 @@ def _projection(fig: go.Figure, projection: pd.DataFrame, unit: str) -> None:
 
 
 def _facts(m: pd.Series) -> None:
-    components.status_badge(m["status"])
     unit = m["unit"]
 
     decimals = 0 if unit == PIECES else 1
@@ -223,7 +228,9 @@ def _facts(m: pd.Series) -> None:
         ("detail.fact.last_consumption", fmt_date(m["last_consumption_date"])),
         ("detail.fact.dq_score", fmt_pct(m["dq_score"])),
     ]
-    components.spec_sheet(t("detail.facts.title"), [(t(key), value) for key, value in facts])
+    components.spec_sheet(
+        t("detail.facts.title"), [(t(key), value) for key, value in facts], status=m["status"]
+    )
     master = [
         ("col.description", m["description"]),
         ("detail.master.price", fmt_eur(m["unit_price_eur"])),

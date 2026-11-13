@@ -15,7 +15,6 @@ from app.theme import (
     CHART_TITLE_FONT,
     SHELL_YELLOW,
     SIGNAL_BLACK,
-    STATUS_BADGE_COLORS,
     STATUS_ICONS,
     STATUS_SYMBOLS,
 )
@@ -30,9 +29,14 @@ def status_text(code: str) -> str:
     return f"{STATUS_SYMBOLS[code]} {status_label(code)}"
 
 
-def status_badge(code: str) -> None:
-    """Colour, icon and text together: status is never shown by colour alone."""
-    st.badge(status_label(code), icon=STATUS_ICONS[code], color=STATUS_BADGE_COLORS[code])
+def status_icon(code: str) -> str:
+    """The status's Material Symbol as an inline glyph for HTML built here.
+
+    Streamlit already loads the Material Symbols font for its own icons; the ligature name
+    renders as the drawn icon. Hidden from screen readers, since the label says the same.
+    """
+    name = STATUS_ICONS[code].removeprefix(":material/").removesuffix(":")
+    return f'<span class="status-icon" aria-hidden="true" translate="no">{name}</span>'
 
 
 def kpi(
@@ -40,17 +44,16 @@ def kpi(
 ) -> None:
     """A rack label: black title strip, one large figure and the reason it means what it says.
 
-    `status` adds that status's symbol to the strip and its form to the card (critical
+    `status` adds that status's icon to the strip and its form to the card (critical
     hatched, warning dashed; see styles.css), so the card never depends on colour alone.
     The full explanation stays available as the native tooltip.
     """
     modifier = f" rack-label--{status.lower()}" if status else ""
-    symbol = html.escape(STATUS_SYMBOLS[status]) if status else ""
+    icon = status_icon(status) if status else ""
     st.html(
         f'<div class="rack-label{modifier}" title="{html.escape(help_text)}">'
-        f'<div class="rack-label__title"><span>{html.escape(label)}</span>'
-        f'<span class="rack-label__symbol" aria-hidden="true">{symbol}</span></div>'
-        '<div class="rack-label__band"></div>'
+        f'<div class="rack-label__title"><span>{html.escape(label)}</span>{icon}</div>'
+        '<div class="marking-band"></div>'
         f'<div class="rack-label__value">{html.escape(value)}</div>'
         f'<div class="rack-label__proof">{html.escape(proof)}</div>'
         "</div>"
@@ -63,16 +66,28 @@ def tags(labels: list[str]) -> None:
     st.html(f'<div class="loc-tags">{spans}</div>')
 
 
-def spec_sheet(title: str, rows: list[tuple[str, str]]) -> None:
-    """Label and value pairs under a black title strip, values right-aligned in one column."""
+def spec_sheet(title: str, rows: list[tuple[str, str]], *, status: str | None = None) -> None:
+    """Label and value pairs under a black title strip, values right-aligned in one column.
+
+    With `status`, the strip carries the status icon and label and the sheet takes that
+    status's form (critical hatched band, warning dashed outline), as the KPI cards do.
+    """
+    modifier = f" spec-sheet--{status.lower()}" if status else ""
+    state_line = (
+        f'<span class="spec-sheet__status">{status_icon(status)}'
+        f"{html.escape(status_label(status))}</span>"
+        if status
+        else ""
+    )
     items = "".join(
         f'<div class="spec-sheet__row"><dt>{html.escape(label)}</dt>'
         f"<dd>{html.escape(value)}</dd></div>"
         for label, value in rows
     )
     st.html(
-        f'<section class="spec-sheet"><div class="spec-sheet__title">{html.escape(title)}</div>'
-        f"<dl>{items}</dl></section>"
+        f'<section class="spec-sheet{modifier}"><div class="spec-sheet__title">'
+        f"<span>{html.escape(title)}</span>{state_line}</div>"
+        f'<div class="marking-band"></div><dl>{items}</dl></section>'
     )
 
 
@@ -109,7 +124,9 @@ def style_figure(
 
 def apply_type(fig: go.Figure) -> go.Figure:
     """The world's faces, sizes and translucent rules, for figures built with subplots too."""
+    # Chart titles speak in the same uppercase label voice as the section headings.
     fig.update_layout(
+        title_text=(fig.layout.title.text or "").upper(),
         title_font={"family": CHART_TITLE_FONT, "size": 16},
         font={"family": CHART_FONT, "size": 13},
         hoverlabel={"namelength": -1, "font": {"family": CHART_FONT}},

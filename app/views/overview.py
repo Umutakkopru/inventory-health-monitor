@@ -10,7 +10,6 @@ import streamlit as st
 
 from app import components, state
 from app.i18n import (
-    fmt_coverage,
     fmt_date,
     fmt_eur,
     fmt_eur_compact,
@@ -23,8 +22,19 @@ from inventory_monitor import pipeline
 from inventory_monitor.models import Status
 
 TOP_N = 10
+VALUE_LABEL_ROOM = 1.15
+STATUS_CHART_MARGIN_RIGHT = 60  # pixels
 KPI_WIDTHS = [1, 1, 1, 1, 1.5, 1.5]
-NARROW_COLUMNS = {"col.material_id": 80, "col.plant": 55, "col.abc": 45}  # pixels
+# Pixel widths that add up to the table's slot beside the status bays at 1280 px (530 px), so
+# the frame ends on a column edge; wider screens stretch them. Long short texts get "…".
+COLUMN_WIDTHS = {
+    "col.material_id": 80,
+    "col.status": 135,
+    "col.description": 125,
+    "col.value_at_risk": 100,
+    "col.plant": 50,
+    "col.abc": 40,
+}
 
 
 def render() -> None:
@@ -37,12 +47,13 @@ def render() -> None:
     components.tags([t("overview.plant_tag", plant=p) for p in state.selected_plants()])
     metrics = state.plant_metrics(analysis)
     _kpi_row(metrics, analysis.thresholds.dead_stock_days)
-    left, right = st.columns(2)
+    # First viewport: status bays on the left, the most urgent materials on the right.
+    left, right = st.columns([2, 3])
     with left:
         _status_chart(metrics)
     with right:
-        _stock_value_chart(analysis.as_of)
-    _most_urgent(metrics)
+        _most_urgent(metrics)
+    _stock_value_chart(analysis.as_of)
 
 
 def _kpi_row(metrics: pd.DataFrame, dead_stock_days: int) -> None:
@@ -106,12 +117,17 @@ def _status_chart(metrics: pd.DataFrame) -> None:
         )
     )
     fig.update_yaxes(autorange="reversed")  # most urgent at the top
+    # Headroom on the right so the count beside the longest bar is never clipped.
+    fig.update_xaxes(range=[0, max(int(counts.max()), 1) * VALUE_LABEL_ROOM])
     components.style_figure(
         fig,
         t("overview.status_chart.title"),
         t("overview.status_chart.x"),
         "",
     )
+    # The long status labels push the plot right; a wider right margin keeps the centred
+    # axis title inside the frame on a phone.
+    fig.update_layout(margin_r=STATUS_CHART_MARGIN_RIGHT)
     components.show_figure(fig, key="overview_status_chart")
 
 
@@ -149,23 +165,21 @@ def _most_urgent(metrics: pd.DataFrame) -> None:
         components.empty_state()
         return
     top = pipeline.sort_by_urgency(alerts).head(TOP_N)
+    # Only what ranks the list fits beside the status bays; stock, safety stock and coverage
+    # are one click away in Alerts and Material Detail.
     table = pd.DataFrame(
         {
-            t("col.status"): top["status"].map(components.status_text),
+            # The material code leads the row, as on a rack label.
             t("col.material_id"): top["material_id"],
+            t("col.status"): top["status"].map(components.status_text),
             t("col.description"): top["description"],
             # Value at risk drives the order, so it sits next to the material.
             t("col.value_at_risk"): top["value_at_risk"].map(fmt_eur),
             t("col.plant"): top["plant"],
             t("col.abc"): top["abc"],
-            t("col.stock"): [
-                f"{fmt_number(s)} {u}" for s, u in zip(top["stock"], top["unit"], strict=True)
-            ],
-            t("col.safety_stock"): top["safety_stock"].map(fmt_number),
-            t("col.coverage_days"): top["coverage_days"].map(fmt_coverage),
         }
     )
-    narrow = {t(c): st.column_config.TextColumn(width=w) for c, w in NARROW_COLUMNS.items()}
+    widths = {t(c): st.column_config.TextColumn(width=w) for c, w in COLUMN_WIDTHS.items()}
     # Material numbers lead each row as yellow code tags, like the labels on a rack.
     styled = table.style.map(components.code_tag_style, subset=[t("col.material_id")])
-    st.dataframe(styled, hide_index=True, column_config=narrow, key="overview_top_table")
+    st.dataframe(styled, hide_index=True, column_config=widths, key="overview_top_table")

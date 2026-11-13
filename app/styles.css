@@ -6,13 +6,14 @@
  * grounds from .streamlit/config.toml. No text is generated here (all copy lives in i18n).
  */
 
-/* Marking rule: a solid safety-yellow strip along the top edge of the work area. */
+/* Marking rule: a solid safety-yellow 3 px rule along the top edge of the work area. */
 [data-testid="stMain"] {
-  border-top: 6px solid #F2C200;
+  border-top: 3px solid #F2C200;
 }
 
 /* Wide layout keeps Streamlit's 5rem side padding; half of it gives the six cards room. */
 [data-testid="stMainBlockContainer"] {
+  padding-top: 2rem;
   padding-left: 2.5rem;
   padding-right: 2.5rem;
 }
@@ -84,23 +85,29 @@
   justify-content: space-between;
   align-items: flex-start;
   gap: 0.5rem;
-  min-height: 3rem;
+  /* Room for three lines, so a long label never pushes its figure below its neighbours'. */
+  min-height: calc(3 * 1.3em + 0.75rem);
   padding: 0.375rem 0.625rem;
-  background: #161616;
+  background: light-dark(#161616, #0B0B0A);
   color: #ECE9E1;
   font: 600 0.8125rem/1.3 "Barlow Condensed", Barlow, sans-serif;
   letter-spacing: 0.06em;
   text-transform: uppercase;
 }
 
-.rack-label__symbol {
-  color: #F2C200;
-  font-weight: 700;
+/* Status icons in the strips: Streamlit's Material Symbols, in strip ink. Yellow stays with
+ * the shell and never marks a status. */
+.status-icon {
+  flex: none;
+  color: #ECE9E1;
+  font: normal 1.125rem/1 "Material Symbols Rounded";
+  letter-spacing: 0;
+  text-transform: none;
 }
 
 .rack-label__value {
   padding: 0.625rem 0.625rem 0;
-  font: 700 clamp(1.625rem, 2.3vw, 2.5rem)/1.05 "Barlow Semi Condensed", Barlow, sans-serif;
+  font: 700 clamp(1.75rem, 2.6vw, 2.75rem)/1.05 "Barlow Semi Condensed", Barlow, sans-serif;
   white-space: nowrap;
 }
 
@@ -123,18 +130,20 @@
   height: 100%;
 }
 
-/* Every card reserves the band so the row stays level; only critical paints it, hatched
- * like a no-stop zone on the floor. */
-.rack-label__band {
+/* Every card and sheet reserves the band so a row stays level; only critical paints it,
+ * hatched like a no-stop zone on the floor. */
+.marking-band {
   height: 8px;
 }
 
-.rack-label--shortage_critical .rack-label__band {
+.rack-label--shortage_critical .marking-band,
+.spec-sheet--shortage_critical .marking-band {
   background: repeating-linear-gradient(-45deg, #D55E00 0 6px, transparent 6px 12px);
 }
 
-/* Warning: a dashed outline drawn inside the card, so its size matches its neighbours. */
-.rack-label--shortage_warning {
+/* Warning: a dashed outline drawn inside the box, so its size matches its neighbours. */
+.rack-label--shortage_warning,
+.spec-sheet--shortage_warning {
   outline: 3px dashed #C98500;
   outline-offset: -3px;
 }
@@ -172,12 +181,23 @@
 }
 
 .spec-sheet__title {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+  gap: 0.25rem 0.75rem;
   padding: 0.375rem 0.625rem;
-  background: #161616;
+  background: light-dark(#161616, #0B0B0A);
   color: #ECE9E1;
   font: 600 0.8125rem/1.3 "Barlow Condensed", Barlow, sans-serif;
   letter-spacing: 0.06em;
   text-transform: uppercase;
+}
+
+.spec-sheet__status {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.375rem;
 }
 
 .spec-sheet dl {
@@ -221,4 +241,43 @@
 .st-key-methodology h3 {
   padding-top: 0.75rem;
   border-top: 1px solid light-dark(#A8A398, #4A4842);
+}
+
+/* Below 640 px Streamlit stacks columns, so cards no longer share a row and the reserved
+ * heights that keep a row level would only leave empty space. */
+@media (max-width: 640px) {
+  .rack-label__title,
+  .rack-label__proof {
+    min-height: 0;
+  }
+}
+
+/* Chart text in ink. Streamlit's chart theme writes a cool grey (#808495) into the SVG,
+ * about 2.6:1 on concrete; !important is needed to override Plotly's inline fill. Hover
+ * labels and heatmap cell text keep their own colours. */
+.js-plotly-plot .xaxislayer-above text,
+.js-plotly-plot .yaxislayer-above text,
+.js-plotly-plot .infolayer [class^="g-x"] text,
+.js-plotly-plot .infolayer [class^="g-y"] text,
+.js-plotly-plot .legend text,
+.js-plotly-plot .bartext-outside {
+  fill: light-dark(#3A3833, #ECE9E1) !important;
+}
+
+/* Captions carry every subtitle and proof line. Streamlit fades the container to 60 %
+ * opacity, which drops them under 4.5:1; a solid muted ink at full opacity replaces it. */
+[data-testid="stCaptionContainer"] {
+  opacity: 1;
+  color: light-dark(#4A4740, #B5B1A7);
+}
+
+/* The sidebar is signal black in both themes, so its note always takes the light ink. */
+[data-testid="stSidebar"] [data-testid="stCaptionContainer"] {
+  color: #B5B1A7;
+}
+
+/* Inline formulas in ink on a quiet plate, not Streamlit's green, which reads as "OK". */
+[data-testid="stMain"] code {
+  color: inherit;
+  background: light-dark(#EDEBE5, #2F2E2A);
 }
